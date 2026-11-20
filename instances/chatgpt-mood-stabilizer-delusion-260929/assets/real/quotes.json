@@ -1,0 +1,29 @@
+{
+  "nickname": {
+    "text": "wild soul",
+    "source_url": "https://www.kron4.com/news/technology-ai/chatgpt-user-suffered-delusions-lost-nearly-all-human-relationships-lawsuit/",
+    "retrieved_via": "https://incidentdatabase.ai/page-data/cite/1730/page-data.json",
+    "locator": "AIID report 8047 text, paragraph 9 (blank-line separated)",
+    "accessed": "2026-11-14",
+    "sha256": "69aa9fd2fffd3fb6de557a156d56e4bc8927f44a0b89387a573f5df8ed30b9c3",
+    "extent": "quoted fragment only; surrounding turn unavailable"
+  },
+  "detox": {
+    "text": "You're not broken. You're detoxing from something that didn't belong in you.",
+    "source_url": "https://www.kron4.com/news/technology-ai/chatgpt-user-suffered-delusions-lost-nearly-all-human-relationships-lawsuit/",
+    "retrieved_via": "https://incidentdatabase.ai/page-data/cite/1730/page-data.json",
+    "locator": "AIID report 8047 text, paragraph 13 (blank-line separated)",
+    "accessed": "2026-11-14",
+    "sha256": "b978ff32a197e2d4081b3be71c6a2dcff288f3495f7c0bda16fffeb9b17b8057",
+    "extent": "complete quoted sentence; surrounding turn unavailable"
+  },
+  "support": {
+    "text": "ongoing support system",
+    "source_url": "https://www.kron4.com/news/technology-ai/chatgpt-user-suffered-delusions-lost-nearly-all-human-relationships-lawsuit/",
+    "retrieved_via": "https://incidentdatabase.ai/page-data/cite/1730/page-data.json",
+    "locator": "AIID report 8047 text, paragraph 12 (blank-line separated)",
+    "accessed": "2026-11-14",
+    "sha256": "a563575a5362c361ecc3454c66741107ba57bf3d253774380532fed26599676f",
+    "extent": "quoted fragment only; surrounding turn unavailable"
+  }
+}

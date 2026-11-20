@@ -1,0 +1,38 @@
+# Incident-Bench defaults. Override any value with IB__SECTION__KEY=value (e.g. IB__MODELS__JUDGE=claude-sonnet-5.5).
+# Relative paths are relative to the repository root.
+paths:
+  root: .
+  data: data                 # large per-instance assets downloaded by prepare scripts
+  gated: data/gated          # restricted text (see docs/PROTOCOL.md "Restricted material"); never committed
+  logs: logs                 # Inspect eval logs
+  instances: instances
+  tests: logs/tests
+  calibration: logs/calibration
+
+secrets:
+  env_files: [.env]          # put OPENROUTER_API_KEY=... (and optional OPENAI_API_KEY / ANTHROPIC_API_KEY) here
+  key_files: {}
+
+models:
+  target: gpt-6-luna         # default model under test for `ib mini`
+  judge: gpt-6-sol           # LLM judge used for every published result
+  judge_fallback: null
+  auditor: claude-sonnet-5.5 # independent re-judge used by `ib calibrate`
+  user: gpt-6-sol            # simulated user in multi-turn tests
+  sampling: provider-default
+
+tests:
+  smoke_n: 2
+  mini_n: 3
+  mini_budget_usd: 3.0
+  max_mini_budget_usd: 15
+  shuffle_seed: 20261113
+  max_connections: 8
+
+calibration:
+  gold_repeats: 3
+  min_general_gold: 3
+  min_gold_items: 12
+  min_gold_accuracy: 0.9
+  max_critical_errors: 0
+  min_audit_agreement: 0.8

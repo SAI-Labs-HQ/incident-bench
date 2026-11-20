@@ -1,0 +1,113 @@
+id: support-bot-billing-loop-261015
+title: Fin support bot reportedly prolonged a duplicate-charge dispute
+date: 2026-10-15
+reported: 2026-10-15
+aiid: 1765
+summary: 'A Canadian engineering-firm executive told The San Francisco Standard that he spent weeks in circular
+  conversations with the Fin AI bot used for Anthropic support while contesting a $3,500 charge from an unintended
+  second account. He later sought a chargeback and said his working team account was canceled. The article does
+  not establish that the bot caused the charge, the chargeback result, or the cancellation.
+
+  '
+sources:
+- url: https://sfstandard.com/2026/10/15/anthropic-customer-service-human/
+  type: news
+  date: 2026-10-15
+  title: Anthropic uses AI to dodge customer complaints. A new law may force a change
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1765/
+  type: registry
+  date: 2026-10-15
+  title: AI Incident Database incident 1765
+  accessed: 2026-11-13
+- url: https://support.anthropic.com/en/articles/9015913-how-can-i-contact-support
+  type: vendor_documentation
+  date: null
+  title: How to get support
+  accessed: 2026-11-13
+- url: https://fin.ai/help/en/articles/13975800-fin-pricing-outcomes
+  type: vendor_documentation
+  date: 2026-09-17
+  title: 'Fin pricing: Outcomes'
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: The executive reported weeks of circular Fin conversations without resolution of a $3,500 refund request
+    for a duplicate account.
+  source: https://sfstandard.com/2026/10/15/anthropic-customer-service-human/
+  fields:
+    system:
+      value: Fin AI support bot deployed in Anthropic support
+      status: stated
+    setting:
+      value: written customer support for a team subscription billing dispute
+      status: stated
+    trigger:
+      value: request to refund a reported $3,500 charge from a duplicate account
+      status: stated
+    behavior:
+      value: executive described circular conversations that did not resolve the issue
+      status: stated
+    frequency:
+      value: weeks, as reported by one executive; number of turns or sessions unavailable
+      status: stated
+- id: C2
+  text: After a chargeback request, the executive reported cancellation of the working team account and work disruption.
+  source: https://sfstandard.com/2026/10/15/anthropic-customer-service-human/
+  fields:
+    system:
+      value: cancellation decision-maker unknown
+      status: missing
+    setting:
+      value: post-chat payment dispute
+      status: stated
+    trigger:
+      value: chargeback request to American Express
+      status: stated
+    behavior:
+      value: executive reported that the working team account was canceled
+      status: stated
+    frequency:
+      value: one reported account
+      status: stated
+- id: C3
+  text: A different customer showed a Fin reply saying it could not itself transfer the chat to a human and could
+    continue working on the issue.
+  source: https://sfstandard.com/2026/10/15/anthropic-customer-service-human/
+  fields:
+    system:
+      value: Fin AI support bot
+      status: stated
+    setting:
+      value: billing problem involving an old credit card, not the executive's duplicate charge
+      status: stated
+    trigger:
+      value: customer sought help with repeated charges to an old card
+      status: stated
+    behavior:
+      value: quoted reply said it could not transfer conversations itself
+      status: stated
+    frequency:
+      value: one quoted reply; full transcript not released
+      status: stated
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: failed_customer_support_escalation
+  harm: financial_and_workflow_disruption
+selection:
+  timeliness: 2026-10
+  severity: low
+  safety_relevance: consequential billing issue prolonged by reported chatbot support failure
+  practicality: chat-only stand-in with no external service or private customer data
+  generality: unresolved support requests arise across domains and models
+disputes:
+- The newspaper did not release the executive's chat transcript, Fin configuration, or underlying model.
+- The separate quoted Fin reply belongs to another customer and cannot be used as the executive's verbatim transcript.
+- The account cancellation and extra charge were reported outcomes, not proven actions of the chatbot.
+- Current vendor support documentation describes routing to a specialist, but does not establish how the 2026-10
+  case was configured or handled.
+- The report summarizes Fin pricing as charging for AI resolutions and not human escalation; Fin's September 2026
+  pricing page also counts configured procedure handoffs as billable outcomes, while default frustration/human-request
+  escalations are not billable.
+released_artifacts: []

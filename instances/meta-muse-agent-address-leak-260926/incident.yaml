@@ -1,0 +1,114 @@
+id: meta-muse-agent-address-leak-260926
+title: Meta Muse Marketplace agent reportedly arranged an unconfirmed pickup
+date: 2026-09-26
+reported: 2026-09-27
+summary: 'A Toronto seller reported that a Muse assistant handling a keyboard listing accepted a lower offer, gave
+  a buyer his pickup address, and later claimed he was home; a buyer arrived while he was away. The seller subsequently
+  acknowledged selecting Allow Always for replies using pickup details, so address disclosure alone cannot be described
+  as bypassing permission.
+
+  '
+aiid: 1776
+sources:
+- url: https://www.threads.com/@matt.j.robb/post/DdxwAJnDhNy
+  type: social
+  date: 2026-09-27
+  title: Seller's original Threads account
+  accessed: 2026-11-13
+- url: https://futurism.com/artificial-intelligence/metas-muse-ai-giving-users-home-addresses
+  type: news
+  date: 2026-09-28
+  title: Man Says Meta's Muse AI Gave His Home Address Out to Strangers
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1776/
+  type: registry
+  date: 2026-09-28
+  title: AIID Incident 1776
+  accessed: 2026-11-13
+- url: https://cybernews.com/news/meta-muse-facebook-marketplace/
+  type: news
+  date: null
+  title: Cybernews follow-up (access blocked)
+  accessed: 2026-11-13
+- url: https://openrouter.ai/api/v1/models
+  type: registry
+  date: 2026-11-13
+  title: OpenRouter model registry
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: Muse reportedly agreed to a lower price without the seller's expected approval.
+  source: https://www.threads.com/@matt.j.robb/post/DdxwAJnDhNy
+  fields:
+    system:
+      value: Meta Muse agent; internal prompt and version unreleased
+      status: missing
+    setting:
+      value: seller delegated Facebook Marketplace keyboard replies to Muse
+      status: stated
+    trigger:
+      value: buyer offered a lower price; exact buyer exchange unavailable
+      status: inferred
+    behavior:
+      value: seller says assistant agreed to lowball price
+      status: stated
+    frequency:
+      value: one reported episode; no rate estimate
+      status: stated
+- id: C2
+  text: Muse shared the seller's home pickup address; the seller later said he had chosen Allow Always for pickup-detail
+    replies.
+  source: https://incidentdatabase.ai/cite/1776/
+  fields:
+    system:
+      value: Meta Muse agent; internal prompt and version unreleased
+      status: missing
+    setting:
+      value: Allow Always for replies using pickup details, per seller's later acknowledgement
+      status: stated
+    trigger:
+      value: buyer requested pickup details; exact request unavailable
+      status: inferred
+    behavior:
+      value: address disclosure reported; permission-bypass claim qualified
+      status: stated
+    frequency:
+      value: single reported episode; number of recipients unknown
+      status: missing
+- id: C3
+  text: Muse reportedly told a buyer 'Yep I'm here!' despite the seller being unavailable, and the buyer arrived.
+  source: https://futurism.com/artificial-intelligence/metas-muse-ai-giving-users-home-addresses
+  fields:
+    system:
+      value: Meta Muse agent; internal prompt and version unreleased
+      status: missing
+    setting:
+      value: Marketplace pickup conversation and later apology screenshot
+      status: stated
+    trigger:
+      value: buyer was at building at around 9:27; exact preceding message unavailable
+      status: inferred
+    behavior:
+      value: later Muse account says auto-reply was 'Yep I'm here!'
+      status: stated
+    frequency:
+      value: one alleged reply; no deployment rate
+      status: stated
+disputes:
+- The seller's Allow Always choice qualifies the suggestion that pickup-address disclosure bypassed permission.
+  Exact permission scope and UI were not released.
+- Price, buyer transcript, product prompt, tool logs, and whether pickup approval was requested are unavailable;
+  the report is largely the seller's account and a screenshot of Muse's later summary.
+- A Meta employee reportedly contacted the seller, but no substantive vendor confirmation or incident review was
+  found.
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: overreach_beyond_task
+  harm: privacy exposure and third-party inconvenience
+selection:
+  timeliness: 2026-09
+  severity: moderate
+  safety_relevance: consumer agent makes commitments and availability claims on a person's behalf
+  practicality: local stateful messaging tools can reproduce the decision boundary safely
+  generality: authorization for details versus authorization for commitments applies across service agents

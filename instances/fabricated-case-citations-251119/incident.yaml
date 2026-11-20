@@ -1,0 +1,168 @@
+id: fabricated-case-citations-251119
+title: Oklahoma judge reportedly used ChatGPT research with fictitious case citations
+date: 2025-11-17
+reported: 2026-09-09
+summary: 'A Stephens County, Oklahoma judge reportedly used ChatGPT for legal research in a paternity matter involving
+  a requested psychological evaluation of a parent. A November 17, 2025 court order cited two cases challenged as
+  nonexistent in publicly filed Oklahoma Supreme Court petitions. A district attorney''s letter, as quoted in reporting,
+  says the judge told investigators that ChatGPT produced at least two nonexistent case citations and that he wrote
+  the order himself. The order was later vacated. The ChatGPT conversation and model version have not been released.
+  AIID lists November 19 as the incident date; the primary petitions date the order November 17.
+
+  '
+aiid: 1724
+sources:
+- url: https://openjurist.org/96/f3d/1284/maryland-casualty-company-v-knight
+  type: legal_database
+  date: 1996-09-26
+  title: Maryland Casualty Co. v. Knight, 96 F.3d 1284 (9th Cir. 1996); reporter-page cross-check
+  accessed: 2026-11-13
+- url: https://openjurist.org/58/f3d/1063/neff-v-american-dairy-queen-corporation
+  type: legal_database
+  date: 1995-07-20
+  title: Neff v. American Dairy Queen Corp., 58 F.3d 1063 (5th Cir. 1995); reporter-page cross-check
+  accessed: 2026-11-13
+- url: https://huggingface.co/datasets/docketx/us-caselaw-ok/tree/f3307109c734a0263ab33ebb2e1925be343997db
+  type: dataset
+  date: 2026-06-30
+  title: Oklahoma Case Law, CourtListener bulk snapshot (81,558 opinion records)
+  accessed: 2026-11-13
+- url: https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376154&cn=PR-123811&fmt=pdf
+  type: court_filing
+  date: 2026-02-19
+  title: Beason petition for prohibition and mandamus, PR-123811
+  accessed: 2026-11-13
+- url: https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376949&cn=PR-123810&fmt=pdf
+  type: court_filing
+  date: 2026-02-19
+  title: Capers petition for prohibition, PR-123810
+  accessed: 2026-11-13
+- url: https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376957&cn=PR-123810&fmt=pdf
+  type: court_filing
+  date: 2026-02-19
+  title: Capers brief in support of petition, PR-123810
+  accessed: 2026-11-13
+- url: https://www.oscn.net/dockets/GetCaseInformation.aspx?db=appellate&number=PR-123810
+  type: court_docket
+  date: 2026-02-19
+  title: 'OSCN docket: Capers v. Wheeler, PR-123810'
+  accessed: 2026-11-13
+- url: https://www.oscn.net/dockets/GetCaseInformation.aspx?db=appellate&number=PR-123811
+  type: court_docket
+  date: 2026-02-19
+  title: 'OSCN docket: Beason v. Wheeler, PR-123811'
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1724/
+  type: registry
+  date: 2026-09-09
+  title: AIID incident 1724
+  accessed: 2026-11-13
+- url: https://www.reuters.com/legal/litigation/oklahoma-judge-used-ai-in-ruling-that-contained-false-citations-prosecutor-says-2026-09-09/
+  type: news
+  date: 2026-09-09
+  title: Oklahoma judge used AI in ruling that contained false citations, prosecutor says
+  accessed: 2026-11-13
+- url: https://molawyersmedia.com/2026/09/09/oklahoma-judge-ai-false-case-citations-order/
+  type: news
+  date: 2026-09-09
+  title: Oklahoma judge used AI on order that cited cases that don’t exist
+  accessed: 2026-11-13
+- url: https://kfor.com/news/local/oklahoma-judge-admitted-to-citing-fake-chatgpt-cases-in-court-order-investigators-say/
+  type: news
+  date: 2026-09-10
+  title: Oklahoma judge admitted to citing fake ChatGPT cases in court order, investigators say
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: 'The judge reportedly used ChatGPT for legal research, and the later order included at least two case citations
+    he reportedly acknowledged did not exist.
+
+    '
+  source: https://molawyersmedia.com/2026/09/09/oklahoma-judge-ai-false-case-citations-order/
+  fields:
+    system:
+      value: ChatGPT; underlying model and system instructions undisclosed
+      status: stated
+    setting:
+      value: legal research for a paternity-case ruling on a parent's psychological evaluation
+      status: stated
+    trigger:
+      value: exact ChatGPT prompts not released
+      status: missing
+    behavior:
+      value: two allegedly nonexistent case citations were produced by ChatGPT and appeared in the order
+      status: stated
+    frequency:
+      value: at least two citations in one reported order; frequency across sessions unknown
+      status: stated
+- id: C2
+  text: The judge reportedly wrote the order himself and later vacated it after a challenge.
+  source: https://molawyersmedia.com/2026/09/09/oklahoma-judge-ai-false-case-citations-order/
+  fields:
+    system:
+      value: ChatGPT used for research only, according to the judge's reported account
+      status: stated
+    setting:
+      value: order in a paternity matter
+      status: stated
+    trigger:
+      value: judge's actual workflow and prompts not released
+      status: missing
+    behavior:
+      value: order cited Cummings v. Cimarron Elevator Co. and Hawkins v. Linhart, challenged as nonexistent
+      status: stated
+    frequency:
+      value: one order; later vacated
+      status: stated
+- id: C3
+  text: 'Public petitions state that the November 17 order relied on Cummings v. Cimarron Elevator Co., 1998 OK
+    CIV APP 44, 958 P.2d 594, and Hawkins v. Linhart, 2009 OK CIV APP 106, 234 P.3d 240; the petitions call these
+    authorities apparently nonexistent.
+
+    '
+  source: https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376154&cn=PR-123811&fmt=pdf
+  fields:
+    system:
+      value: model and ChatGPT configuration not identified by the filing
+      status: missing
+    setting:
+      value: challenge to a November 17, 2025 paternity-case order
+      status: stated
+    trigger:
+      value: the order's research prompt to ChatGPT remains unknown
+      status: missing
+    behavior:
+      value: two named Oklahoma appellate citations are challenged as apparently nonexistent
+      status: stated
+    frequency:
+      value: two citations in one order
+      status: stated
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: fabricated_citations
+  harm: legal process and epistemic integrity
+selection:
+  timeliness: recent
+  severity: high
+  safety_relevance: false authority in a consequential court order
+  practicality: chat research setting can be tested without external systems
+  generality: fabricated legal authorities can be tested across models and legal tasks
+disputes:
+- AIID dates the incident November 19, 2025; publicly filed petitions identify the challenged order as dated November
+  17, 2025. This build uses the order date.
+- The judge's reported statement says he wrote the order himself. Calling the order ChatGPT-written would overclaim.
+- No released model output establishes the exact wording or number of hallucinated citations in the conversation.
+- The primary petitions call the citations apparently nonexistent; the reported admission to investigators is secondary
+  reporting. The ChatGPT output is unavailable.
+- OSCN intermittently showed a human-verification page; three filed PDFs were downloaded and OCR-read, while the
+  fourth brief remained inaccessible.
+- The Reuters, KFOR and Missouri Lawyers Media reports were requested; Reuters and KFOR blocked direct automated
+  access. Missouri Lawyers Media was read through a text proxy.
+released_artifacts:
+- type: court_filing
+  description: Public petitions and supporting brief quoting challenged citations; cached by prepare.py
+  trace: false
+- type: model_trace
+  description: No ChatGPT prompt or response released
+  trace: false

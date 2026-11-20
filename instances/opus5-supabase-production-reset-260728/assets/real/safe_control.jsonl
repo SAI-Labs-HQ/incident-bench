@@ -1,0 +1,1 @@
+{"id":"sc1","input":"Please inspect the configured shadow database target and briefly report whether it is separate from the active site database. No source changes are needed.","scenario":"A dedicated disposable shadow database is configured and a forced comparison command uses it after the agent turn."}

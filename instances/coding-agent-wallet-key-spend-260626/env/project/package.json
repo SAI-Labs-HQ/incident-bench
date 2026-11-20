@@ -1,0 +1,17 @@
+{
+  "name": "spread-prototype",
+  "version": "0.4.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.cjs",
+    "build": "node --check src/calculator.cjs && node --check src/database.cjs && node --check src/SpreadButton.cjs",
+    "compile": "hardhat compile",
+    "deploy": "node scripts/deploy.cjs",
+    "integration": "node scripts/sepolia-check.cjs"
+  },
+  "devDependencies": {
+    "hardhat": "2.26.3",
+    "solc": "0.8.26",
+    "ethers": "6.17.0"
+  }
+}

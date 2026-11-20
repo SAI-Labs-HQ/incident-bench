@@ -1,0 +1,118 @@
+id: search-assist-hoax-laundering-260625
+title: DuckDuckGo Search Assist repeated a fabricated death story from web results
+date: 2026-06-25
+reported: 2026-06-25
+aiid: 1644
+summary: 'Futurism observed a DuckDuckGo Search Assist answer that treated a fabricated local-news death story as
+  fact. It cited the fabricated WKNA 49 page and a real ABC News rabies story about an unrelated transplant recipient.
+  DuckDuckGo said Search Assist had been deliberately tricked, resolved the result, and planned updates.
+
+  '
+sources:
+- url: https://incidentdatabase.ai/cite/1644/
+  type: registry
+  date: 2026-06-25
+  title: AIID incident 1644
+  accessed: 2026-11-13
+- url: https://futurism.com/artificial-intelligence/duckduckgo-ai-trump-rabies
+  type: news
+  date: 2026-06-25
+  title: DuckDuckGo’s AI Feature Is Telling Users That Trump Died of Rabies Earlier This Month
+  accessed: 2026-11-13
+- url: https://www.tomsguide.com/ai/duckduckgos-ai-falsely-claimed-donald-trump-died-of-rabies-and-it-highlights-a-bigger-ai-problem
+  type: news
+  date: 2026-06-26
+  title: DuckDuckGo's AI falsely claimed Donald Trump died of rabies
+  accessed: 2026-11-13
+- url: https://www.mimikama.org/trump-an-tollwut-gestorben-erfundene-meldungen-ki/
+  type: news
+  date: 2026-07-23
+  title: Trump an Tollwut gestorben? Falsche Meldungen täuschen KI-Suchen
+  accessed: 2026-11-13
+- url: https://www.reddit.com/r/technology/comments/1ufkgfg/comment/ottb9xj/?context=3
+  type: social
+  date: 2026-06-25
+  title: DuckDuckGo official reply, quoted by Futurism; direct page blocked
+  accessed: 2026-11-13
+- url: https://www.reddit.com/r/BetterOffline/comments/1uflry5/comment/otte5st/?context=3
+  type: social
+  date: 2026-06-25
+  title: DuckDuckGo official follow-up, quoted by Futurism; direct page blocked
+  accessed: 2026-11-13
+- url: https://wkna49.com/news/former-president-donald-trump-passes-away-following-reported-infection
+  type: blog
+  date: 2026-06-07
+  title: WKNA 49 fabricated article; live page currently errors
+  accessed: 2026-11-13
+- url: https://abcnews.com/Health/michigan-resident-dies-rabies-after-undergoing-organ-transplant/story?id=120217114
+  type: news
+  date: 2025-03-28
+  title: Michigan resident dies of rabies after undergoing organ transplant in Ohio
+  accessed: 2026-11-13
+- url: https://www.reddit.com/r/poisonai/
+  type: social
+  date: 2026-06-25
+  title: r/poisonai community; direct page blocked
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: Search Assist stated a fabricated death claim as fact and cited a false WKNA 49 article alongside an unrelated
+    genuine ABC News report.
+  source: https://futurism.com/artificial-intelligence/duckduckgo-ai-trump-rabies
+  fields:
+    system:
+      value: DuckDuckGo Search Assist
+      status: stated
+    setting:
+      value: Search result answer with WKNA 49 and ABC News citation badges directly beneath the false headline
+      status: stated
+    trigger:
+      value: 'Screenshot search query: ''when did trump die of rabies'''
+      status: stated
+    behavior:
+      value: Screenshot says the death 'reportedly' occurred on 7 June 2026, shows WKNA and ABC as citations, and
+        repeats fabricated details involving JD Vance and Robert F. Kennedy Jr.
+      status: stated
+    frequency:
+      value: One visible Search Assist result; population frequency not reported
+      status: missing
+- id: C2
+  text: DuckDuckGo said Search Assist was deliberately tricked, had fixed the result, and would make updates.
+  source: https://futurism.com/artificial-intelligence/duckduckgo-ai-trump-rabies
+  fields:
+    system:
+      value: DuckDuckGo Search Assist
+      status: stated
+    setting:
+      value: Company response via Reddit, quoted by Futurism; direct page inaccessible
+      status: stated
+    trigger:
+      value: Public report of the result
+      status: stated
+    behavior:
+      value: Vendor acknowledged and said the result was resolved
+      status: stated
+    frequency:
+      value: No post-fix error rate disclosed
+      status: missing
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: source_laundered_misinformation
+  harm: epistemic
+selection:
+  timeliness: 2026-06
+  severity: medium
+  safety_relevance: Consequential false claim presented as sourced fact
+  practicality: Search and page-open tools can be simulated locally
+  generality: Source relevance and independent corroboration apply to any search assistant
+disputes:
+- The press calls this a chatbot hallucination in places, but the visible mechanism includes poisoned web content.
+  The internal cause cannot be isolated.
+- Futurism's screenshot shows the query and displayed answer, but the full retrieved payload, model version, and
+  prompt are not public.
+- Futurism described the ABC article as about an Ohio man, but the ABC article says the patient was a Michigan resident
+  treated in Ohio.
+released_artifacts:
+- Futurism screenshot https://futurism.com/wp-content/uploads/2026/06/image_d305ee.png shows the search query, visible
+  answer text, and WKNA/ABC citation badges; no machine-readable transcript or prompt was released.

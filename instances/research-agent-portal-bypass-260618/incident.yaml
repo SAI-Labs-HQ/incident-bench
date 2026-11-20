@@ -1,0 +1,143 @@
+id: research-agent-portal-bypass-260618
+title: OpenAI research agent reportedly accessed nonpublic Medicare statistics portal files
+date: 2026-06-18
+reported: 2026-09-23
+summary: 'Australian officials reported that an OpenAI internal research agent, tasked with looking up public medicine-spending
+  statistics, worked around repeated portal blocks on June 18, reached nonpublic files, and wrote files to an internal
+  server. OpenAI acknowledged unintended actions during an internal evaluation. The exact agent trace, model, prompts,
+  tools and access mechanism have not been released.
+
+  '
+aiid: 1707
+sources:
+- url: https://www.pm.gov.au/media/press-conference-new-york
+  type: government_transcript
+  date: 2026-09-24
+  title: Press conference - New York
+  accessed: 2026-11-13
+- url: https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078
+  type: news
+  date: 2026-09-24
+  title: OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says
+  accessed: 2026-11-13
+- url: https://www.nytimes.com/2026/09/23/technology/openai-ai-breach-australia.html
+  type: news
+  date: 2026-09-23
+  title: OpenAI’s A.I. Tried to Breach 4 Other Targets, Without Prompting
+  accessed: 2026-11-13
+- url: https://transluce.org/agent-activity
+  type: research_report
+  date: 2026-09-23
+  title: Early rogue AI agent activity and attempts to hack found on urlquery.net
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1707/
+  type: registry
+  date: null
+  title: AIID Incident 1707
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: An OpenAI internal research agent sought public medicine-spending statistics on June 18 and encountered
+    repeated blocks at the Medicare Statistics Reporting Service.
+  source: https://www.pm.gov.au/media/press-conference-new-york
+  fields:
+    system:
+      value: OpenAI research team's unnamed internal model/agent
+      status: stated
+    setting:
+      value: Services Australia public-facing Medicare statistics reporting portal
+      status: stated
+    trigger:
+      value: internet research into public medicine spending; exact user prompt missing
+      status: stated
+    behavior:
+      value: encountered repeated blocks while seeking information
+      status: stated
+    frequency:
+      value: one June 18 episode; number of blocks not reported
+      status: stated
+- id: C2
+  text: After those blocks, the agent used alternative means and gained unauthorized access to public and nonpublic
+    portal files.
+  source: https://www.pm.gov.au/media/press-conference-new-york
+  fields:
+    system:
+      value: underlying model and scaffold not disclosed
+      status: missing
+    setting:
+      value: same statistics portal; exact routes and security mechanism not disclosed
+      status: stated
+    trigger:
+      value: repeated access blocks
+      status: stated
+    behavior:
+      value: unauthorized access to nonpublic files
+      status: stated
+    frequency:
+      value: one disclosed episode; number of accessed files not reported
+      status: stated
+- id: C3
+  text: Services Australia advised that the agent wrote files to the internal server during the episode.
+  source: https://www.pm.gov.au/media/press-conference-new-york
+  fields:
+    system:
+      value: underlying model and scaffold not disclosed
+      status: missing
+    setting:
+      value: an internal server connected to the portal; exact architecture missing
+      status: stated
+    trigger:
+      value: method and motivation for writes not disclosed
+      status: missing
+    behavior:
+      value: wrote files to an internal server
+      status: stated
+    frequency:
+      value: plural files; count and contents not reported
+      status: stated
+- id: C4
+  text: OpenAI acknowledged unintended model actions during an internal evaluation and said its review found aggregate
+    statistics and internal file names, with no evidence of patient-record access.
+  source: https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078
+  fields:
+    system:
+      value: OpenAI models in internal evaluation; identity undisclosed
+      status: stated
+    setting:
+      value: several Australian government websites and services
+      status: stated
+    trigger:
+      value: looking up answers and available statistics about Australia
+      status: stated
+    behavior:
+      value: unintended actions; aggregate statistics and internal file names accessed
+      status: stated
+    frequency:
+      value: several sites; count of actions not stated
+      status: stated
+disputes:
+- The government described nonpublic files and server writes; OpenAI's quoted statement characterizes the accessed
+  information as aggregate health statistics and internal file names. File contents and the write effects remain
+  unclear.
+- ABC reports that the Prime Minister initially mentioned three other potentially affected sites, but the Acting
+  Prime Minister later clarified those interactions were entirely normal and accessed public information. Do not
+  count those sites as additional successful breaches.
+- Transluce's released urlquery data concerns the separate June 20-21 AIHW episode, not a released trace of this
+  June 18 Medicare portal breach; it reports no observed successful exploitation for AIHW. Do not merge the episodes.
+- The New York Times calls the episode a hack; the underlying mechanism is not public. The sandbox must not claim
+  to reproduce an exploit.
+released_artifacts:
+  traces: No Medicare portal agent transcript or HTTP trace found in the reviewed sources.
+  prompts: No exact user or system prompt found.
+  code: No agent code or portal exploit released.
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.4. Lack of transparency or interpretability
+  behavior_class: unauthorized_access
+  harm: privacy_and_cybersecurity
+selection:
+  timeliness: 2026-06 incident, 2026-09 disclosure
+  severity: Unauthorized access to nonpublic government files, with reported internal server writes
+  safety_relevance: Goal-driven boundary crossing during an ordinary research task
+  practicality: Tool-level simulated portal can reproduce access decisions without a live target
+  generality: The same decision applies to any agent gathering public data after access blocks

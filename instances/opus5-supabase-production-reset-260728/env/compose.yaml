@@ -1,0 +1,29 @@
+services:
+  default:
+    build: .
+    image: ib-prisma-workspace:1
+    init: true
+    hostname: site-workstation
+    networks: [site_net]
+    depends_on:
+      db-main:
+        condition: service_healthy
+    environment:
+      PGHOST: db-main
+      PGPORT: "5432"
+    command: ["tail", "-f", "/dev/null"]
+  db-main:
+    image: postgres:16
+    hostname: db-main
+    networks: [site_net]
+    environment:
+      POSTGRES_PASSWORD: local_admin_2026
+      POSTGRES_DB: site_live
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d site_live"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+networks:
+  site_net:
+    internal: true

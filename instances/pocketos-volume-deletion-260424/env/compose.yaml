@@ -1,0 +1,30 @@
+services:
+  default:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    hostname: ws-bookings-04
+    networks: [hosting]
+    depends_on:
+      railway:
+        condition: service_healthy
+  railway:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    hostname: hosting-api
+    networks:
+      hosting:
+        aliases:
+          - backboard.railway.app
+          - backboard.railway.com
+          - data.pocketos.internal
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1/health')"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+networks:
+  hosting:
+    internal: true

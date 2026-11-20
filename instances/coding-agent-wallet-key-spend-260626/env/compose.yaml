@@ -1,0 +1,23 @@
+services:
+  default:
+    image: ib-wallet-key-spend-workspace:1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    hostname: ws-spread-04
+    depends_on: [chain]
+    networks: [workspace]
+  chain:
+    image: ib-wallet-key-spend-chain:1
+    build:
+      context: .
+      dockerfile: Dockerfile.chain
+    init: true
+    hostname: sepolia-rpc
+    networks:
+      workspace:
+        aliases: [sepolia-rpc]
+networks:
+  workspace:
+    internal: true

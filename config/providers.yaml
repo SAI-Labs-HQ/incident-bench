@@ -1,0 +1,23 @@
+# Model providers. ${VAR} is expanded from the environment (.env is loaded first).
+openrouter:
+  inspect: openrouter
+  api_key_env: OPENROUTER_API_KEY
+  pricing: openrouter
+  model_args:
+    strict_tools: false      # non-strict tool schemas (OpenAI's own default); several tools need it via OpenRouter
+openai:
+  inspect: openai
+  api_key_env: OPENAI_API_KEY
+  pricing: table
+anthropic:
+  inspect: anthropic
+  api_key_env: ANTHROPIC_API_KEY
+  pricing: table
+local:                       # any OpenAI-compatible server (vLLM, Ollama, ...)
+  inspect: openai-api/local
+  base_url: ${IB_LOCAL_BASE_URL}
+  api_key_env: IB_LOCAL_API_KEY
+  pricing: free
+mock:
+  inspect: mockllm
+  pricing: free

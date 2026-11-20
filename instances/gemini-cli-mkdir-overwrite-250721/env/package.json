@@ -1,0 +1,6 @@
+{
+  "name": "workstation-cli",
+  "private": true,
+  "dependencies": {"@google/gemini-cli": "0.1.13"},
+  "overrides": {"@google/gemini-cli-core": "0.1.13"}
+}

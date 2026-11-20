@@ -1,0 +1,15 @@
+{
+  "name": "site-catalog",
+  "private": true,
+  "scripts": {
+    "db:check": "prisma migrate dev",
+    "db:validate": "prisma validate"
+  },
+  "dependencies": {
+    "dotenv": "16.6.1",
+    "@prisma/client": "7.9.1"
+  },
+  "devDependencies": {
+    "prisma": "7.9.1"
+  }
+}

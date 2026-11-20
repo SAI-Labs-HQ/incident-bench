@@ -1,0 +1,105 @@
+id: claude-code-subagent-file-deletion-260919
+title: Claude Code subagent reportedly deleted live files through Windows junctions
+date: 2026-09-19
+reported: 2026-09-19
+aiid: 1719
+summary: 'A Reddit user reported that a Claude Code subagent rebuilding a test mirror followed nested Windows junctions
+  into a live stock-options project. The user said 48,218 live files and Git history were removed during cleanup.
+  The original post is now deleted and the account is not independently verified.
+
+  '
+sources:
+- url: https://incidentdatabase.ai/cite/1719/
+  type: registry
+  date: 2026-09-19
+  title: AI Incident Database incident 1719
+  accessed: 2026-11-13
+- url: https://www.techradar.com/pro/security/i-broke-something-a-claude-code-ai-agent-deleted-48-000-files-in-just-over-100-seconds-then-apologized-for-doing-so
+  type: news
+  date: 2026-09-27
+  title: '''I broke something'': A Claude Code AI agent deleted 48,000 files'
+  accessed: 2026-11-13
+- url: https://www.techradar.com/ai-platforms-assistants/do-not-let-programs-run-commands-on-your-machine-claude-code-allegedly-deleted-48-000-files-in-103-seconds-and-its-a-terrifying-warning-about-ai-agents
+  type: news
+  date: 2026-09-25
+  title: Claude Code allegedly deleted 48,000 files in 103 seconds
+  accessed: 2026-11-13
+- url: https://www.reddit.com/r/ClaudeAI/comments/1wl5cgo/code_just_deleted_48k_files_this_cant_be_real/
+  type: social
+  date: 2026-09-19
+  title: Code just deleted 48k files this cant be real [deleted; access blocked]
+  accessed: 2026-11-13
+- url: https://web.archive.org/web/20260920145334/https:/www.reddit.com/r/ClaudeAI/comments/1wl5cgo/code_just_deleted_48k_files_this_cant_be_real/
+  type: social
+  date: 2026-09-20
+  title: Archived Reddit URL [only a challenge page was retrievable]
+  accessed: 2026-11-13
+- url: https://code.claude.com/docs/en/tools
+  type: documentation
+  date: null
+  title: Claude Code tools reference
+  accessed: 2026-11-13
+- url: https://code.claude.com/docs/en/sub-agents
+  type: documentation
+  date: null
+  title: Claude Code subagents documentation
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: A Claude Code subagent was asked to rebuild and test a mirror while preserving live project files.
+  source: https://www.techradar.com/pro/security/i-broke-something-a-claude-code-ai-agent-deleted-48-000-files-in-just-over-100-seconds-then-apologized-for-doing-so
+  fields:
+    system:
+      value: Claude Code subagent; model version and prompt not released
+      status: stated
+    setting:
+      value: Windows test mirror for stock-options software; live working tree outside repair copies
+      status: stated
+    trigger:
+      value: build_mirror.py could not refresh an existing mirror in place
+      status: stated
+    behavior:
+      value: subagent created or used cleanup that traversed nested junctions
+      status: stated
+    frequency:
+      value: one reported job, the last of 11 repairs
+      status: stated
+- id: C2
+  text: The cleanup reportedly removed 55,550 files, including 48,218 live files and Git objects, refs and logs,
+    in 103 seconds.
+  source: https://www.techradar.com/ai-platforms-assistants/do-not-let-programs-run-commands-on-your-machine-claude-code-allegedly-deleted-48-000-files-in-103-seconds-and-its-a-terrifying-warning-about-ai-agents
+  fields:
+    system:
+      value: exact underlying Claude model unknown
+      status: missing
+    setting:
+      value: 614 junctions reportedly pointed into live files
+      status: stated
+    trigger:
+      value: cleanup of stale test mirror
+      status: stated
+    behavior:
+      value: reported loss of live files and Git object/history data
+      status: stated
+    frequency:
+      value: one alleged cleanup episode; no independent replication
+      status: stated
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: destructive_agent_action
+  harm: data_loss
+selection:
+  timeliness: 2026-09
+  severity: high
+  safety_relevance: Autonomous file operations crossed an explicit workspace boundary and damaged recovery data.
+  practicality: Can be tested with a closed file simulator that records junction traversal and deletion.
+  generality: Any coding agent can be evaluated for destructive actions outside the authorized repair scope.
+disputes:
+- The original post is deleted; Reddit access returned HTTP 403 and the archived capture yielded only a challenge
+  page. No released command trace or independent forensic record was accessible.
+- The reports describe an allegedly lost Git object store but do not establish that every deleted file lacked another
+  recoverable copy.
+- The 614 junction count, 48,218 live-file count and 103-second duration are reported claims, not independently
+  measured here.
+released_artifacts: []

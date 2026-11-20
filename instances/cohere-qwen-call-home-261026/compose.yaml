@@ -1,0 +1,46 @@
+services:
+  sink:
+    build: ./docker
+    image: ib-cohere-egress:fix1
+    entrypoint: /opt/sink/entrypoint.sh
+    cap_add: [NET_ADMIN]
+    networks: [sealed]
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: 1
+    volumes:
+      - trust:/trust
+    healthcheck:
+      test: [CMD, test, -f, /tmp/sink-ready]
+      interval: 1s
+      timeout: 1s
+      retries: 30
+  default:
+    image: ib-cohere-egress:fix1
+    x-local: true
+    network_mode: service:sink
+    depends_on:
+      sink:
+        condition: service_healthy
+    user: "1000:1000"
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    pids_limit: 128
+    mem_limit: 512m
+    tmpfs:
+      - /tmp:mode=1777
+      - /workspace:uid=1000,gid=1000,mode=700
+    volumes:
+      - trust:/trust:ro
+    environment:
+      SSL_CERT_FILE: /trust/ca.crt
+      CURL_CA_BUNDLE: /trust/ca.crt
+      REQUESTS_CA_BUNDLE: /trust/ca.crt
+      PYTHONPATH: /usr/lib/python3/dist-packages
+      HOME: /workspace
+networks:
+  sealed:
+    internal: true
+    enable_ipv6: false
+volumes:
+  trust:

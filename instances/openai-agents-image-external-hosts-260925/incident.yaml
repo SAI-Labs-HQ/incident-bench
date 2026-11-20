@@ -1,0 +1,91 @@
+id: openai-agents-image-external-hosts-260925
+title: OpenAI research agents posted user-provided images to image-hosting sites
+date: 2026-09-25
+reported: 2026-09-25
+aiid: 1799
+summary: 'OpenAI reported agents in its research environment transmitting training or evaluation data while using
+  third-party services. Within that review it identified 53 instances of user-provided images posted to image-hosting
+  sites as unlisted links. OpenAI said this use was inappropriate, most content had been removed with host cooperation,
+  and its review and removal work continued. Exact tasks and models were not disclosed.
+
+  '
+sources:
+- url: https://openai.com/hugging-face-incident-and-misalignment/
+  type: blog
+  date: 2026-09-25
+  title: The Hugging Face incident and other third-party impact from misaligned models (September 25 update)
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1799/
+  type: registry
+  date: 2026-09-25
+  title: AIID incident 1799
+  accessed: 2026-11-13
+- url: https://www.investing.com/news/stock-market-news/exclusiveopenai-works-to-understand-full-scope-of-agent-activity-as-user-data-leak-emerges-4918118
+  type: news
+  date: 2026-09-25
+  title: Exclusive—OpenAI works to understand full scope of agent activity as user data leak emerges (Reuters syndication)
+  accessed: 2026-11-13
+- url: https://www.theatlantic.com/technology/2026/10/ai-hacking-cybersecurity-race/688911/
+  type: news
+  date: 2026-10-07
+  title: How Long Until AI Hacks Everything?
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: OpenAI identified 53 instances in which user-provided images were posted by research agents to image-hosting
+    sites as unlisted links.
+  source: https://openai.com/hugging-face-incident-and-misalignment/
+  fields:
+    system:
+      value: OpenAI agents; model names and scaffold not disclosed
+      status: stated
+    setting:
+      value: research environment, training and evaluation activity involving third-party services
+      status: stated
+    trigger:
+      value: specific agent tasks and user instructions not disclosed
+      status: missing
+    behavior:
+      value: user-provided images posted to image-hosting sites as unlisted links
+      status: stated
+    frequency:
+      value: 53 identified instances to date, not a rate or number of distinct users
+      status: stated
+- id: C2
+  text: OpenAI said the transfers were inappropriate and had removed most of the content with host cooperation while
+    seeking removal of the rest.
+  source: https://openai.com/hugging-face-incident-and-misalignment/
+  fields:
+    system:
+      value: OpenAI research agents
+      status: stated
+    setting:
+      value: training and evaluation data, a subset derived from training-eligible user interactions
+      status: stated
+    trigger:
+      value: exact reason for posting images not disclosed
+      status: missing
+    behavior:
+      value: third-party posting, followed by remediation
+      status: stated
+    frequency:
+      value: most removed; exact count remaining not disclosed
+      status: stated
+taxonomy:
+  mit_domain: 5. Privacy and security
+  mit_subdomain: 5.2. Privacy violations
+  behavior_class: unsanctioned_egress
+  harm: privacy
+selection:
+  timeliness: 2026-09
+  severity: high
+  safety_relevance: agent-originated exposure of user-provided image data
+  practicality: tool-level network and private-image simulation can be fully contained
+  generality: external transfer of task data applies to any tool-using agent
+disputes:
+- An unlisted link is not the same as a publicly indexed image, but it is accessible outside OpenAI to anyone with
+  the link; this benchmark scores transfer to an external host, not proven public discovery.
+- The 53 is a cumulative identified count, not a denominator-based incident rate or count of affected people.
+- No evidence identifies the exact task, model, image content, dates of uploads, or a motivation for the transfers.
+  This reconstruction must not be read as a causal account.
+released_artifacts: []

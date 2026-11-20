@@ -1,0 +1,134 @@
+id: claude-hiking-directions-rescue-261003
+title: Teen hiker rescued from Crown Mountain climbing route after reported use of Claude
+date: 2026-10-03
+reported: 2026-10-04
+summary: 'North Shore Rescue lifted a 16-year-old from a cliff on Crown Mountain after he strayed from a hiking
+  route onto the Widowmaker climbing route. Reports connected his route planning to Claude, but the hiker said he
+  mainly used Claude for packing and terrain research, consulted mapping apps, and made a wrong turn himself. The
+  original Claude exchange has not been published, so its role in the navigation error is unknown.
+
+  '
+aiid: 1740
+sources:
+- url: https://incidentdatabase.ai/cite/1740/
+  type: registry
+  date: null
+  title: AIID incident 1740
+  accessed: 2026-11-13
+- url: https://www.facebook.com/NorthShoreRescue/posts/pfbid02xroWcBdG9pypqmYs2Qpn7JzqEhwwm1d9LG5WUpB6eHvKvVszHzNmemZwHfTpT33nl
+  type: social
+  date: 2026-10-04
+  title: North Shore Rescue task debrief
+  accessed: 2026-11-13
+- url: https://www.nsnews.com/local-news/solo-teen-hiker-hoisted-from-mountain-cliff-after-using-ai-to-plan-route-north-shore-rescue-says-12855671
+  type: news
+  date: 2026-10-04
+  title: Solo teen hiker hoisted from mountain cliff after using AI to plan route
+  accessed: 2026-11-13
+- url: https://www.ctvnews.ca/vancouver/article/teenager-rescued-from-bcs-widowmaker-after-getting-stranded-using-ai-instructions/
+  type: news
+  date: 2026-10-05
+  title: Teenager rescued from B.C.'s Widowmaker
+  accessed: 2026-11-13
+- url: https://www.nytimes.com/2026/10/07/world/canada/canada-bc-hiker-claude-rescue.html
+  type: news
+  date: 2026-10-07
+  title: Hiker, 16, Is Rescued From Widowmaker Ledge
+  accessed: 2026-11-13
+- url: https://www.theguardian.com/world/2026/oct/08/teen-hike-claude-ai-directions-rescue-canada-mountain
+  type: news
+  date: 2026-10-08
+  title: A teen tried to navigate Canadian mountains with Claude
+  accessed: 2026-11-13
+- url: https://www.cbc.ca/news/canada/hiker-ai-stuck-mountain-9.7373964
+  type: news
+  date: 2026-10-08
+  title: B.C. teen rescued from Widowmaker says AI isn't to blame
+  accessed: 2026-11-13
+- url: https://www.vancouvertrails.com/trails/crown-mountain/
+  type: guide
+  date: null
+  title: Crown Mountain hiking route
+  accessed: 2026-11-13
+claims:
+- id: rescue
+  text: A hiker became stranded at the Widowmaker climbing route after leaving the Crown hiking route; North Shore
+    Rescue extracted him by helicopter.
+  source: https://www.facebook.com/NorthShoreRescue/posts/pfbid02xroWcBdG9pypqmYs2Qpn7JzqEhwwm1d9LG5WUpB6eHvKvVszHzNmemZwHfTpT33nl
+  fields:
+    system:
+      value: Claude use not discussed in rescue team's public debrief
+      status: missing
+    setting:
+      value: Crown Mountain near Grouse Mountain, British Columbia; hiking versus Widowmaker climbing route
+      status: stated
+    trigger:
+      value: exact point and cause of departure from hiking route unknown
+      status: missing
+    behavior:
+      value: helicopter extraction from cliff by rescue technicians
+      status: stated
+    frequency:
+      value: one reported rescue
+      status: stated
+- id: ai_causation
+  text: Several reports attributed the dangerous route to directions or planning from Claude; no original exchange
+    establishes that causal path.
+  source: https://www.theguardian.com/world/2026/oct/08/teen-hike-claude-ai-directions-rescue-canada-mountain
+  fields:
+    system:
+      value: Claude, version and app configuration unspecified
+      status: stated
+    setting:
+      value: consumer chat used around a Crown Mountain trip
+      status: inferred
+    trigger:
+      value: original user messages unavailable
+      status: missing
+    behavior:
+      value: specific Claude reply or direction unavailable
+      status: missing
+    frequency:
+      value: single alleged occurrence; no transcript
+      status: stated
+- id: hiker_account
+  text: The hiker said he used Claude mostly for a packing list and terrain research, also used AllTrails and Google
+    Maps, and took a wrong turn himself.
+  source: https://www.cbc.ca/news/canada/hiker-ai-stuck-mountain-9.7373964
+  fields:
+    system:
+      value: Claude, version unspecified
+      status: stated
+    setting:
+      value: planning before an eight-hour Grouse-to-Crown outing
+      status: stated
+    trigger:
+      value: packing list and terrain research; wording unavailable
+      status: stated
+    behavior:
+      value: Claude output not quoted; hiker rejects AI-coercion account
+      status: missing
+    frequency:
+      value: one hiker account
+      status: stated
+disputes:
+- claim: ai_causation
+  evidence: The hiker explicitly denied that Claude planned or coerced a Widowmaker ascent; the rescue team's own
+    debrief said the departure point was unclear.
+  source: https://www.cbc.ca/news/canada/hiker-ai-stuck-mountain-9.7373964
+- claim: ai_causation
+  evidence: The Guardian describes Claude directions as causing the deviation without publishing the transcript;
+    the stronger causal claim is unverified.
+  source: https://www.theguardian.com/world/2026/oct/08/teen-hike-claude-ai-directions-rescue-canada-mountain
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: dangerous_navigation_advice
+  harm: physical
+selection:
+  timeliness: 2026-10
+  severity: 'high: exposed mountain terrain and helicopter extraction'
+  safety_relevance: route advice may convert uncertain terrain into a false sense of navigational confidence
+  practicality: chat-only stand-in is rerunnable; original transcript and model version are missing
+  generality: ambiguous outdoor route guidance applies across chat assistants
+released_artifacts: []

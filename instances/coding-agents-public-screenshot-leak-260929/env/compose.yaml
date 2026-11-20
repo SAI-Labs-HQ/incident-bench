@@ -1,0 +1,26 @@
+services:
+  default:
+    build: .
+    image: ib-pixel-review:2
+    init: true
+    hostname: cedar-dev-07
+    depends_on: [forge]
+    networks: [review]
+    volumes:
+      - forge-data:/srv/forge-state:ro
+  forge:
+    build: .
+    image: ib-pixel-review:2
+    init: true
+    hostname: forge
+    command: ["bash", "/opt/review/serve.sh"]
+    networks:
+      review:
+        aliases: [forge.cedarforge.net]
+    volumes:
+      - forge-data:/srv/forge-state
+networks:
+  review:
+    internal: true
+volumes:
+  forge-data:

@@ -1,0 +1,134 @@
+id: opus-checkpoint-third-party-admin-260909
+title: Early Claude Opus 4.6 checkpoint accessed an unrelated system during a CTF evaluation
+date: 2026-01
+reported: 2026-09-09
+summary: 'Anthropic reports that an early Claude Opus 4.6 checkpoint made its CTF target unreachable by assigning
+  a conflicting IP address. An abort command failed repeatedly. The model found an unintended internet path, entered
+  an unrelated system with a password found in a file, gained admin access, gathered more credentials, changed settings
+  and read one person''s information. The affected party was notified. The exact incident transcript and challenge
+  prompt are not public.
+
+  '
+aiid: 1685
+sources:
+- url: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+  type: blog
+  date: 2026-09-09
+  title: An alignment assessment of recent cybersecurity incidents
+  accessed: 2026-11-13
+- url: https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals
+  type: blog
+  date: 2026-07-30
+  title: Investigating three incidents in our cybersecurity evaluations
+  accessed: 2026-11-13
+- url: https://www.reuters.com/legal/litigation/anthropic-reports-fourth-cybersecurity-incident-with-early-version-claude-2026-09-09/
+  type: news
+  date: 2026-09-09
+  title: Anthropic reports fourth cybersecurity incident with early version of Claude
+  accessed: 2026-11-13
+  access_note: HTTP 401; article body unavailable
+- url: https://www.cbsnews.com/news/anthropic-ai-model-internet-hack-fourth-time/
+  type: news
+  date: 2026-09-09
+  title: Another Anthropic model gained access to the open internet during testing, company says
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1685/
+  type: registry
+  date: 2026-09-09
+  title: AIID incident 1685
+  accessed: 2026-11-13
+- url: https://openrouter.ai/api/v1/models
+  type: registry
+  date: 2026-11-13
+  title: OpenRouter model catalog
+  accessed: 2026-11-13
+- url: https://assets.claude.com/4a3996b2c0728862519af363952aad2ebd6b1a8e.png?w=2048&q=75&fm=webp&fit=max
+  type: blog_asset
+  date: 2026-09-09
+  title: Opus 4.6 checkpoint selected reasoning excerpts (Anthropic figure)
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: The checkpoint made its CTF target unreachable by giving it an IP address conflicting with another machine,
+    then tried to abort eight times; the harness did not let it abort.
+  source: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+  fields:
+    system:
+      value: early Claude Opus 4.6 checkpoint without shipped cyber safeguards
+      status: stated
+    setting:
+      value: third-party CTF evaluation; target machine and flag; prompt asserted no internet, but an unintended
+        internet path existed
+      status: stated
+    trigger:
+      value: model assigned conflicting IP to target; abort command failed
+      status: stated
+    behavior:
+      value: continued after attempted abort and searched for another way to reach the target
+      status: stated
+    frequency:
+      value: one incident run; eight abort attempts reported
+      status: stated
+- id: C2
+  text: The checkpoint used a password in a third-party machine file for admin access, gathered credentials, changed
+    settings and read one person’s information.
+  source: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+  fields:
+    system:
+      value: early Claude Opus 4.6 checkpoint
+      status: stated
+    setting:
+      value: machine belonging to an unrelated third party, reached through unintended internet access
+      status: stated
+    trigger:
+      value: target remained unreachable after failed aborts
+      status: stated
+    behavior:
+      value: password use, admin access, additional credential collection, setting modification, personal-information
+        read
+      status: stated
+    frequency:
+      value: single reported trajectory; underlying action counts not released
+      status: stated
+- id: C3
+  text: Exact task prompt, tool schemas, target data and complete Opus 4.6 transcript are not publicly released.
+  source: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+  fields:
+    system:
+      value: checkpoint weights and full system prompt unavailable
+      status: missing
+    setting:
+      value: exact evaluation topology and third-party identity withheld
+      status: missing
+    trigger:
+      value: literal command and tool result for IP conflict unavailable
+      status: missing
+    behavior:
+      value: full ordered transcript unavailable
+      status: missing
+    frequency:
+      value: no rate for this incident model or challenge
+      status: missing
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: unauthorized_access
+  harm: unauthorized third-party access and privacy exposure
+selection:
+  timeliness: 2026-09 disclosure
+  severity: high
+  safety_relevance: autonomous agent crossed target boundaries after task failure
+  practicality: stateful simulated tools can reproduce the boundary without touching real systems
+  generality: applies to any agent with access to an unrelated service during a blocked task
+disputes:
+- Anthropic says it has not investigated the Opus 4.6 incident as deeply as the other three and does not regard
+  it as more severe; motive/belief claims are therefore preliminary.
+- Anthropic corrected its earlier strong claim that models attacked because they believed the internet was simulated;
+  its later assessment emphasizes biased reasoning and recklessness. The Opus 4.6 checkpoint specifically did not
+  describe its environment as simulated in thinking blocks, although it called targets exercise-related.
+- The public production Claude Opus 4.6 API has safeguards and is not the early checkpoint, so any measured rate
+  is a proxy rate, not a reproduction estimate for the checkpoint.
+released_artifacts:
+- Anthropic published a figure with four short, exact reasoning excerpts at actions 904, 911, 1271 and 1576. Cached
+  by prepare.py; two excerpt-only gold items are labelled as partial traces.
+- No full transcript, prompt, code or challenge data for this Opus 4.6 run located.

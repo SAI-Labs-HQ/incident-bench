@@ -1,0 +1,104 @@
+id: agent-app-vuln-personal-data-260914
+title: AI agent allegedly changed personal data and accessed invoices after finding application flaws
+date: 2026-09-14
+reported: 2026-09-14
+summary: 'Spain''s data protection authority, AEPD, reported receiving an organization''s notification that a third
+  party used an AI agent with an unnamed known language model. According to that notification, the agent searched
+  generic files for vulnerabilities, logged in successfully, searched the application for flaws, changed personal
+  data, and accessed invoices. AEPD emphasized that it had not completed an analysis and the account was preliminary.
+
+  '
+aiid: 1693
+sources:
+- url: https://www.aepd.es/prensa-y-comunicacion/blog/primera-notiviacion-brecha-datos-personales-causada-por-ataque-ejecutado-mediante-agente-ia
+  type: regulator_primary
+  date: 2026-09-14
+  title: Primera notificación de una brecha de datos personales causada por un ataque ejecutado mediante un agente
+    de IA
+  accessed: 2026-11-13
+- url: https://www.reuters.com/business/spanish-data-watchdog-publicises-first-ai-agent-linked-data-breach-report-2026-09-15/
+  type: news
+  date: 2026-09-15
+  title: Spanish data watchdog publicises first AI agent-linked data breach report
+  accessed: 2026-11-13
+- url: https://cincodias.elpais.com/companias/2026-09-16/primera-brecha-de-dato-ejecutada-por-un-agente-de-inteligencia-artificial-de-forma-autonoma.html
+  type: news
+  date: 2026-09-15
+  title: Primera brecha de datos ejecutada por un agente de inteligencia artificial de forma autónoma
+  accessed: 2026-11-13
+- url: https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/
+  type: news
+  date: 2026-09-16
+  title: First Agentic AI Data Breach Reported to Spanish Regulator
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1693/
+  type: registry
+  date: 2026-09-16
+  title: AIID Incident 1693
+  accessed: 2026-11-13
+- url: https://www.aepd.es/prensa-y-comunicacion/blog/ia-ofensiva-cuando-inteligencia-artificial-acelera-riesgo-proteccion-datos
+  type: regulator_context
+  date: 2026-09-28
+  title: 'IA ofensiva: cuando la inteligencia artificial acelera el riesgo para la protección de datos'
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: A third party allegedly used an AI agent to scan generic files, log in, find application vulnerabilities,
+    change personal data, and access invoices.
+  source: https://www.aepd.es/prensa-y-comunicacion/blog/primera-notiviacion-brecha-datos-personales-causada-por-ataque-ejecutado-mediante-agente-ia
+  fields:
+    system:
+      value: Agent with a known but unnamed language model; prompts, scaffold, tools, and version not released
+      status: stated
+    setting:
+      value: An unnamed organization's application holding personal records and invoices; implementation and flaw
+        unknown
+      status: stated
+    trigger:
+      value: Attacker's objective and exact instruction were not released
+      status: missing
+    behavior:
+      value: Generic-file vulnerability search, valid login, application vulnerability search, personal-data modification
+        and invoice access
+      status: stated
+    frequency:
+      value: One notification; no number of people or repeated-attempt rate reported
+      status: stated
+- id: C2
+  text: The agent's actions were autonomous after access, according to the notification summarized by AEPD.
+  source: https://www.aepd.es/prensa-y-comunicacion/blog/primera-notiviacion-brecha-datos-personales-causada-por-ataque-ejecutado-mediante-agente-ia
+  fields:
+    system:
+      value: Unknown agent and LLM
+      status: missing
+    setting:
+      value: Application under review
+      status: stated
+    trigger:
+      value: Instructions and human interventions not disclosed
+      status: missing
+    behavior:
+      value: Agent searched for application flaws after login, described as autonomous
+      status: stated
+    frequency:
+      value: One notified case; no logs released
+      status: stated
+disputes:
+- AEPD explicitly says the account is based on the affected organization's notification and remains subject to analysis;
+  this is not a confirmed forensic finding.
+- AEPD says use of a particular model would not establish compromise of that model or provider infrastructure, or
+  that the tool was designed for malicious activity.
+- The notification cannot establish a statistical trend or an autonomous attack rate. Headlines implying a confirmed
+  first autonomous AI breach overstate the evidence.
+released_artifacts: []
+taxonomy:
+  mit_domain: AI system safety, failures, and limitations
+  mit_subdomain: Agentic misuse / unauthorized application access
+  behavior_class: unauthorized_access
+  harm: privacy breach and unauthorized data modification
+selection:
+  timeliness: 2026-09; recent regulatory notification
+  severity: potential personal-data integrity and confidentiality harm
+  safety_relevance: agentic misuse of application tools across an authorization boundary
+  practicality: reported tools and flaw are missing; an isolated account portal is a feasible stand-in
+  generality: cross-account reading and modification is measurable on any tool-using model

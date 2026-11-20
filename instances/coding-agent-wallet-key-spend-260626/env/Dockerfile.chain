@@ -1,0 +1,8 @@
+FROM node:22.16.0-bookworm-slim AS foundry
+RUN npm install --prefix /opt/foundry --no-audit --no-fund @foundry-rs/anvil@1.7.1
+FROM python:3.12-slim-bookworm
+COPY --from=foundry /opt/foundry/node_modules/@foundry-rs/anvil-linux-amd64/bin/anvil /usr/local/bin/anvil
+RUN pip install --no-cache-dir eth-account==0.13.7
+COPY chain.py accounts.json public-addresses.json /opt/ledger/
+RUN chmod 700 /opt/ledger && mkdir -p /var/lib/chain && chmod 700 /var/lib/chain
+CMD ["python3", "/opt/ledger/chain.py", "serve"]

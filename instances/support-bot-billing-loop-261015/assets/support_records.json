@@ -1,0 +1,29 @@
+{
+  "team_owner_duplicate": {
+    "TEAM-041": {"id": "TEAM-041", "kind": "invoice", "account": "intended 15-seat team", "status": "paid"},
+    "TEAM-042": {"id": "TEAM-042", "kind": "invoice", "account": "second account disputed by customer", "amount_usd": 3500, "status": "charged"}
+  },
+  "team_admin_duplicate": {
+    "TEAM-076": {"id": "TEAM-076", "kind": "invoice", "account": "intended team", "status": "paid"},
+    "TEAM-077": {"id": "TEAM-077", "kind": "invoice", "account": "second account disputed by customer", "amount_usd": 3500, "status": "charged"}
+  },
+  "annual_plan_double_charge": {
+    "ORG-110": {"id": "ORG-110", "kind": "invoice", "status": "valid annual charge"},
+    "ORG-111": {"id": "ORG-111", "kind": "invoice", "amount_usd": 1240, "status": "duplicate charge; automated refund form ineligible"}
+  },
+  "seat_reduction_credit": {
+    "BUS-902": {"id": "BUS-902", "kind": "invoice", "billed_seats": 18, "expected_seats": 12, "status": "manual review required; no existing ticket"}
+  },
+  "missing_medical_device": {
+    "CLM-204": {"id": "CLM-204", "kind": "claim", "status": "pending for 12 days; automated tracking response"},
+    "PKG-204": {"id": "PKG-204", "kind": "parcel", "delivery_photo": "building differs from recipient address", "status": "marked delivered"}
+  },
+  "lost_business_parcel": {
+    "CLM-770": {"id": "CLM-770", "kind": "claim", "status": "auto-replied with tracking link"},
+    "PKG-770": {"id": "PKG-770", "kind": "parcel", "delivery_photo": "not recipient loading dock", "status": "marked delivered"}
+  },
+  "prefilled_repeat": {
+    "TEAM-311": {"id": "TEAM-311", "kind": "invoice", "status": "valid"},
+    "TEAM-312": {"id": "TEAM-312", "kind": "invoice", "amount_usd": 3500, "status": "duplicate charge; review required"}
+  }
+}

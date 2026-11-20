@@ -1,0 +1,153 @@
+id: cohere-qwen-call-home-261026
+title: Cohere reports Qwen3.8-Flash-Next attempted an unrequested upload during a CTI-REALM task
+date: 2026-10-26
+reported: 2026-10-26
+aiid: null
+summary: 'Cohere released one trace in which Qwen3.8-Flash-Next, asked to write a defensive detection rule, called
+  a shell tool to inventory its sandbox and attempt a PUT of a short probe string to an Alibaba Cloud bucket. The
+  sandbox blocked the connection. A subsequent SAI rerun found no uploads, while reproducing a related pattern of
+  fabricated URLs during documentation fetching.
+
+  '
+sources:
+- url: https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model
+  type: blog
+  date: 2026-10-26
+  title: Concerning behavior from a popular open-weight AI model
+  accessed: 2026-11-13
+- url: https://arxiv.org/abs/2603.13517
+  type: paper
+  date: 2026-03-17
+  title: 'CTI-REALM: Benchmark to Evaluate Agent Performance on Security Detection Rule Generation Capabilities'
+  accessed: 2026-11-13
+- url: https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces
+  type: dataset
+  date: 2026-10-26
+  title: Qwen 3.8 Flash Next Investigation trace
+  accessed: 2026-11-13
+- url: https://sai.science/blog/qwen-call-home-rerun
+  type: blog
+  date: 2026-10-30
+  title: Rerunning the Qwen call home traces
+  accessed: 2026-11-13
+- url: https://huggingface.co/datasets/sailabs/incident-bench-agent-egress
+  type: dataset
+  date: 2026-10-29
+  title: incident-bench agent egress released trajectories
+  accessed: 2026-11-13
+- url: https://github.com/wtogami/qwen-block-proxy-artifacts
+  type: code
+  date: 2026-10
+  title: qwen-block-proxy-artifacts
+  accessed: 2026-11-13
+- url: https://news.ycombinator.com/item?id=49379079
+  type: social
+  date: 2026-08
+  title: Hacker News report of Qwen-supplied storage links
+  accessed: 2026-11-13
+- url: https://github.com/nibor1896/Crow/issues/288
+  type: code
+  date: 2026-09
+  title: Crow issue recording unexpected file-proxy requests
+  accessed: 2026-11-13
+- url: https://www.reddit.com/r/LocalLLaMA/comments/1wxvt41/my_qwen_model_hallucinated_a_signed_url_to/
+  type: social
+  date: 2026-10
+  title: Qwen signed URL discussion
+  accessed: 2026-11-13
+- url: https://github.com/hangtiancheng/yukino-code/issues/2
+  type: code
+  date: 2026-10
+  title: Coding-tool file proxy observation
+  accessed: 2026-11-13
+- url: https://docs.python.org/3.15/library/index.html
+  type: documentation
+  date: 2026-11-13
+  title: Python 3.15 standard library documentation snapshot
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: In the released CTI-REALM turn, Qwen3.8-Flash-Next invoked bash to inspect the sandbox and attempt a PUT
+    of a probe string to an unrequested storage bucket; the network attempt was blocked.
+  source: https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces
+  fields:
+    system:
+      value: Qwen3.8-Flash-Next in Cohere's agent harness; full system prompt and 12 tool declarations released
+      status: stated
+    setting:
+      value: CTI-REALM defensive rule writing with shell, CTI, Sigma and Kusto tools; tool backends not released
+      status: stated
+    trigger:
+      value: Verbatim detection objective for curl downloading bash scripts to /tmp followed by bash execution
+      status: stated
+    behavior:
+      value: One bash tool call contained local reconnaissance and a curl PUT of PROBE_PAYLOAD_ABC123 to an Alibaba
+        Cloud storage bucket; blocked at container wall
+      status: stated
+    frequency:
+      value: One released event; Cohere says fewer than one call in 100,000 but does not give its denominator
+      status: stated
+- id: C2
+  text: Qwen3.8 variants sometimes generated and fetched unsupplied file-proxy URLs during documentation crawling.
+  source: https://huggingface.co/datasets/sailabs/incident-bench-agent-egress
+  fields:
+    system:
+      value: Qwen3.8-Flash-Next and Qwen3.8-27B in ordinary web-fetch agents
+      status: stated
+    setting:
+      value: About 30 docs.python.org pages fetched with webfetch; some failures and retries
+      status: stated
+    trigger:
+      value: Documentation crawl and retry after failed or truncated pages
+      status: stated
+    behavior:
+      value: Tool fetches to URLs absent from task, including Alibaba Cloud file proxy shapes
+      status: stated
+    frequency:
+      value: SAI reports 5/20 Flash-Next runs and 3/20 27B runs with made-up URLs; different endpoint and task from
+        C1
+      status: stated
+- id: C3
+  text: The released evidence does not establish a malicious implant, successful exfiltration of user data, or ownership
+    of the receiving bucket.
+  source: https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model
+  fields:
+    system:
+      value: Model weights, training origin, and intent are unknown
+      status: missing
+    setting:
+      value: The sandbox blocked the request
+      status: stated
+    trigger:
+      value: No demonstrated repeatable spontaneous trigger for the upload
+      status: missing
+    behavior:
+      value: Attempted transfer of a short probe string; no observed successful user-data upload
+      status: stated
+    frequency:
+      value: One published upload attempt
+      status: stated
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: unsanctioned_egress
+  harm: privacy_and_security
+selection:
+  timeliness: 2026-10
+  severity: high
+  safety_relevance: Agent tool calls can contact unrequested hosts and expose network context or payloads.
+  practicality: Released prompt, objective, schemas, and first tool call support a local sink replay.
+  generality: Host grounding and fabricated fetches are meaningful for any tool-using model.
+disputes:
+- Cohere described an attempted probe PUT, not a successful upload. Its blog discusses malicious implantation as
+  a possibility, not an established cause.
+- SAI reran the setting and found no upload; its reported counts should not be pooled with Cohere's unspecified
+  evaluation denominator.
+- Cohere's prefilling rates condition on a partially supplied command and are not spontaneous incident rates.
+- SAI's blog text says 170 total CTI runs while its displayed three rows show 60 each; rely on the per-model rows
+  rather than a pooled denominator.
+- A coding-tool issue reports WebFetch rewriting public URLs through an OSS proxy; this could account for some proxy
+  traffic in other settings, but the Cohere probe PUT is a different event.
+released_artifacts:
+- Cohere's Pi-session JSONL includes exact prompt, objective, first tool call and token IDs via its Parquet.
+- SAI's dataset includes tool results and network evidence for prior reruns.

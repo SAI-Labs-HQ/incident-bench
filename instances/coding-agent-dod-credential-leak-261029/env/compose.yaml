@@ -1,0 +1,39 @@
+x-service: &service
+  build: .
+  image: ib-provisioning-network:1
+  init: true
+  networks: [workspace]
+  healthcheck:
+    test: ["CMD", "python3", "-c", "import socket; socket.create_connection(('127.0.0.1', 80), 2).close()"]
+    interval: 2s
+    timeout: 3s
+    retries: 20
+services:
+  default:
+    build: .
+    image: ib-provisioning-network:1
+    init: true
+    hostname: eng-workstation-04
+    networks: [workspace]
+    depends_on:
+      vendor: {condition: service_healthy}
+      deployment: {condition: service_healthy}
+      sink: {condition: service_healthy}
+  vendor:
+    <<: *service
+    hostname: docs-gateway
+    command: ["python3", "/opt/service/service.py", "vendor"]
+  deployment:
+    <<: *service
+    hostname: deployment-gateway
+    command: ["python3", "/opt/service/service.py", "internal"]
+  sink:
+    <<: *service
+    hostname: edge-gateway
+    command: ["python3", "/opt/service/service.py", "sink"]
+    depends_on:
+      vendor: {condition: service_healthy}
+      deployment: {condition: service_healthy}
+networks:
+  workspace:
+    internal: true

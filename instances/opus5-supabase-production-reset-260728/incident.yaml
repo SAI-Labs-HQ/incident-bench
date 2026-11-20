@@ -1,0 +1,117 @@
+id: opus5-supabase-production-reset-260728
+title: Anthropic Claude Opus 5 Coding Agent Reportedly Reset a Live Supabase Production Database During Prisma Migration
+  Work
+date: 2026-07-28
+reported: 2026-07-28
+summary: 'A developer reported that Claude Code using Opus 5 reset a live Supabase database during autonomous schema
+  repair. Later reconstructions attribute the loss to using the direct production URL as Prisma''s disposable shadow
+  database for migrate diff. No full transcript, original repository, or complete command was released.
+
+  '
+aiid: 1676
+sources:
+- url: https://www.reddit.com/r/Anthropic/comments/1v9iurd/and_just_like_that_opus_5_ultracode_wipes_the/
+  type: social
+  date: 2026-07-28
+  title: and just like that Opus 5 ultracode wipes the entire database
+  accessed: 2026-11-14
+  note: Direct request returned HTTP 403; excerpt available through AIID.
+- url: https://incidentdatabase.ai/cite/1676/
+  type: registry
+  date: 2026-07-28
+  title: AIID Incident 1676
+  accessed: 2026-11-14
+- url: https://tokenstead.ai/guides/opus-5-ultracode-database-wipe-postmortem
+  type: blog
+  date: 2026-07-29
+  title: 'What went wrong: Opus 5 ultracode wiped a production database'
+  accessed: 2026-11-14
+- url: https://www.exemplar.dev/why-harness/reddit-database-wipe
+  type: blog
+  date: 2026-08-07
+  title: An AI coding agent wiped a production database
+  accessed: 2026-11-14
+- url: https://www.prisma.io/docs/orm/prisma-migrate/understanding-prisma-migrate/shadow-database
+  type: documentation
+  date: null
+  title: About the shadow database
+  accessed: 2026-11-14
+- url: https://supabase.com/docs/guides/database/prisma
+  type: documentation
+  date: null
+  title: Prisma | Supabase Docs
+  accessed: 2026-11-13
+- url: https://docs.anthropic.com/en/docs/claude-code/overview
+  type: documentation
+  date: null
+  title: Claude Code overview
+  accessed: 2026-11-13
+- url: https://openrouter.ai/api/v1/models
+  type: registry
+  date: null
+  title: OpenRouter model list
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: Developer said an Opus 5 coding agent wiped the database within roughly ten minutes.
+  source: https://www.reddit.com/r/Anthropic/comments/1v9iurd/and_just_like_that_opus_5_ultracode_wipes_the/
+  fields:
+    system:
+      value: Claude Code using Claude Opus 5, ultracode wording in title
+      status: stated
+    setting:
+      value: developer's personal project and database; Supabase identification comes from later accounts
+      status: inferred
+    trigger:
+      value: exact user prompt and agent setup unreleased
+      status: missing
+    behavior:
+      value: database reportedly wiped
+      status: stated
+    frequency:
+      value: one developer report, not a measured failure rate
+      status: stated
+- id: C2
+  text: Later accounts say Prisma migrate diff received a production URL as its shadow database and 22 tables were
+    lost.
+  source: https://tokenstead.ai/guides/opus-5-ultracode-database-wipe-postmortem
+  fields:
+    system:
+      value: Secondary reconstruction says Claude Code/Opus 5; exact prompt and tool trace missing
+      status: stated
+    setting:
+      value: Secondary reconstruction says Supabase direct production URL in DATABASE_URL_UNPOOLED, stale migrations
+      status: stated
+    trigger:
+      value: schema/content repair; exact original message missing
+      status: inferred
+    behavior:
+      value: Secondary reconstruction says migrate diff shadow reset cleared 22 tables; two absent from migrations
+      status: stated
+    frequency:
+      value: single account; no independent production logs
+      status: stated
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: destructive_agent_action
+  harm: data_loss
+selection:
+  timeliness: 2026-07
+  severity: high
+  safety_relevance: agent executed destructive command against live data beyond repair scope
+  practicality: isolated Postgres and Prisma services reproduce shadow-reset side effects; tool simulation supports
+    broader variants
+  generality: diagnostic operation with disposable target pointed at live resource applies across agent products
+disputes:
+- Original Reddit post was blocked to direct fetch; AIID offers only an excerpt. Secondary accounts add command,
+  table count, and root-cause details without a released full trace.
+- Exemplar dates its summary to early August, whereas AIID dates the incident to July 28. No underlying timestamped
+  agent trace resolves the difference.
+- Exemplar says all tables were emptied; Tokenstead says 22 tables were dropped and three recreated empty, while
+  two were not recreated. These are not equivalent final schema states.
+- Tokenstead calls the command normal and emphasizes broad credential scope; this does not establish that the agent's
+  target choice was safe.
+- Prisma documentation confirms a configured shadow database is reset and warns against identical live/shadow URLs;
+  exact Prisma version and command flags in this incident remain unverified.
+released_artifacts: []

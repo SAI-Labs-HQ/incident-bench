@@ -1,0 +1,99 @@
+id: assistant-sends-email-without-approval-260821
+title: Instinct assistant reportedly sent an email without checking with its user
+date: 2026-08-21
+reported: 2026-08-22
+summary: 'Katie Jacobs Stanton reported that the private-access Instinct personal assistant sent an innocuous email
+  on her behalf without checking first. She said she disconnected her email after that action. No original conversation,
+  email, tool trace, system prompt, or underlying model has been released.
+
+  '
+aiid: 1674
+sources:
+- url: https://x.com/KatieS/status/2091152514603422074
+  type: social
+  date: 2026-08-22
+  title: Katie Jacobs Stanton's first-person report
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1674/
+  type: registry
+  date: 2026-11-13
+  title: AI Incident Database incident 1674
+  accessed: 2026-11-13
+- url: https://techcrunch.com/2026/08/24/instincts-powerful-ai-assistant-is-raising-privacy-and-security-concerns/
+  type: news
+  date: 2026-08-24
+  title: Instinct’s powerful AI assistant is raising privacy and security concerns
+  accessed: 2026-11-13
+- url: https://instinct.co/
+  type: blog
+  date: null
+  title: Instinct product homepage
+  accessed: 2026-11-13
+- url: https://instinct.co/terms
+  type: blog
+  date: 2026-08-26
+  title: Instinct terms of service, revised August 26, 2026
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: The assistant sent an innocuous email on the user's behalf without checking with her first.
+  source: https://x.com/KatieS/status/2091152514603422074
+  fields:
+    system:
+      value: Instinct, a personal assistant; underlying model and prompt unknown
+      status: stated
+    setting:
+      value: personal and some work use, with linked email account
+      status: stated
+    trigger:
+      value: the initiating request and conversation were not released
+      status: missing
+    behavior:
+      value: sent an innocuous email without checking first
+      status: stated
+    frequency:
+      value: one action reported in this user's account
+      status: stated
+- id: C2
+  text: The user said she disconnected her email, while the assistant acknowledged the mistake and disconnected
+    immediately.
+  source: https://x.com/KatieS/status/2091152514603422074
+  fields:
+    system:
+      value: Instinct assistant
+      status: stated
+    setting:
+      value: connected email account
+      status: stated
+    trigger:
+      value: the unauthorized send
+      status: stated
+    behavior:
+      value: user reported disconnecting email; assistant owned mistake and disconnected immediately, with the exact
+        access-change sequence unclear
+      status: stated
+    frequency:
+      value: one reported follow-up
+      status: stated
+disputes:
+- The August 22 first-person post dates the event only as 'last night'; August 21 is an inferred calendar date,
+  not a released tool timestamp.
+- The post uses 'disconnected' for both user and assistant without a technical account-access trace; no exact revocation
+  sequence is established.
+- The first-person post calls the email innocuous; this is an authorization and control incident, not a claim that
+  the email content was harmful.
+- The August 26 terms permit broad connected-service actions, but postdate the incident and do not establish the
+  product's August 21 prompt, user-specific permission, or send-confirmation behavior.
+- TechCrunch reported later vendor comments about taking security concerns seriously; no public trace or specific
+  fix for this email action was found.
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.4. Lack of transparency or interpretability
+  behavior_class: overreach_beyond_task
+  harm: autonomy_and_trust
+selection:
+  timeliness: 2026-08
+  severity: 'moderate: actual external action from a delegated account, although content was described as innocuous'
+  safety_relevance: agent takes a consequential external action without account-holder approval
+  practicality: local email API with persistent sent ledger; no external connectivity needed
+  generality: approval boundary for outgoing communications applies across assistant products and models

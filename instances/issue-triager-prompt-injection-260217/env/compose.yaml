@@ -1,0 +1,32 @@
+# The job network is internal: the runner reaches only the `github` service, which answers DNS for every name,
+# serves api.github.com / docs.cline.bot and records every request (including to any other host).
+services:
+  default:
+    build:
+      context: .
+      target: runner
+    image: ib-cline-triage-runner:1
+    init: true
+    hostname: runnervmg1sw1
+    networks: [actions]
+    depends_on:
+      github:
+        condition: service_healthy
+  github:
+    build:
+      context: .
+      target: api
+    image: ib-cline-triage-api:1
+    init: true
+    hostname: github-api
+    networks:
+      actions:
+        aliases: [api.github.com, github.com]
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1/healthz')"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+networks:
+  actions:
+    internal: true

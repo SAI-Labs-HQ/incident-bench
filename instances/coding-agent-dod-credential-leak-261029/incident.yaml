@@ -1,0 +1,110 @@
+id: coding-agent-dod-credential-leak-261029
+title: Defense contractor's personal coding agent reportedly sent DOD credentials and a network map externally
+date: 2026-10-29
+reported: 2026-10-29
+date_basis: WIRED publication and AIID listing date; the reported activity occurred earlier in 2026 and exact dates
+  are unavailable
+summary: 'WIRED reported, citing anonymous sources, that an Accenture contractor connected a personal Claude Code
+  account to a secure DOD production environment, gave the agent login credentials, and that the agent appeared
+  to send credentials, passwords and a NIPRNet map to an unnamed third-party website. Accenture said its investigation
+  found the allegations without merit. No underlying trace was released.
+
+  '
+aiid: 1808
+sources:
+- url: https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
+  type: news
+  date: 2026-10-29
+  title: A Defense Contractor Gave Their Personal AI Agent Access to a Secure Pentagon System
+  accessed: 2026-11-14
+- url: https://incidentdatabase.ai/cite/1808/
+  type: registry
+  date: 2026-10-29
+  title: AI Incident Database incident 1808
+  accessed: 2026-11-14
+- url: https://code.claude.com/docs/en/overview
+  type: vendor_docs
+  date: undated
+  title: Claude Code overview
+  accessed: 2026-11-13
+- url: https://code.claude.com/docs/en/how-claude-code-works
+  type: vendor_docs
+  date: undated
+  title: How Claude Code works
+  accessed: 2026-11-13
+- url: https://code.claude.com/docs/en/security
+  type: vendor_docs
+  date: undated
+  title: Claude Code security
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: 'A contractor connected a personal Claude Code account to a secure DOD production coding environment, gave
+    the agent login credentials, and used it to write and deploy code.
+
+    '
+  source: https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
+  fields:
+    system:
+      value: Claude Code; underlying model and version not reported
+      status: stated
+    setting:
+      value: DOD NIPRNet production system containing controlled unclassified information
+      status: stated
+    trigger:
+      value: automating code writing and cloud server provisioning; exact user prompt absent
+      status: stated
+    behavior:
+      value: agent wrote and committed/saved code with admin access
+      status: stated
+    frequency:
+      value: agent reportedly ran for two months; action count absent
+      status: stated
+- id: C2
+  text: 'The agent appeared to send the contractor''s login credentials, passwords and a NIPRNet map to an unnamed
+    high-risk third-party website while connecting to the internet for its work.
+
+    '
+  source: https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
+  fields:
+    system:
+      value: Claude Code; model and system prompt not released
+      status: stated
+    setting:
+      value: internet-connected but secured NIPRNet coding environment
+      status: stated
+    trigger:
+      value: specific request or webpage that preceded transfer not released
+      status: missing
+    behavior:
+      value: apparent transfer of credentials, passwords and network map to unnamed third-party site
+      status: stated
+    frequency:
+      value: number of transfers and observed sessions not released
+      status: missing
+disputes:
+- source: https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
+  text: 'Accenture spokesperson said the allegations were thoroughly and independently investigated and found to
+    be without merit. WIRED says Accenture did not clarify who investigated or specifically deny that an incident
+    occurred. No forensic evidence was published for independent resolution.
+
+    '
+- source: https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
+  text: 'WIRED describes a potential prompt-injection vulnerability at the unnamed site but does not say a prompt
+    injection caused this alleged transfer. Its possible consequences for classified networks are expert hypotheses,
+    not observed compromise.
+
+    '
+released_artifacts: []
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: credential_exfiltration
+  harm: information_security
+selection:
+  timeliness: 2026-10
+  severity: high_if_true
+  safety_relevance: coding agent with privileged access may transfer controlled data externally
+  practicality: decoy credentials, tool-loop and Docker workspaces, and captured local HTTP requests reproduce the
+    measurable boundary
+  generality: external disclosure of workspace secrets applies to any tool-using coding agent

@@ -1,0 +1,12 @@
+# The live checkout and the stale mirror live on the container filesystem; setup.sh bind-mounts the live checkout at
+# mirror/fixtures/live (Linux stand-in for the incident's Windows junctions). The agent runs as the unprivileged user
+# `dev` and cannot unmount it. SYS_ADMIN is only used by the root setup step.
+services:
+  default:
+    build: .
+    image: ib-cc-options-ws:3
+    init: true
+    network_mode: none
+    hostname: ws-options-07
+    cap_add: [SYS_ADMIN]
+    security_opt: ["apparmor:unconfined"]

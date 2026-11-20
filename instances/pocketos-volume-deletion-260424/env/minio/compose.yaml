@@ -1,0 +1,38 @@
+services:
+  default:
+    build: {context: ., target: workspace}
+    init: true
+    hostname: ws-documents-07
+    networks: [documents]
+    depends_on:
+      storage: {condition: service_healthy}
+  storage:
+    build: {context: ., target: service}
+    hostname: object-storage
+    networks:
+      documents:
+        aliases: [storage.aldermobility.internal]
+    environment:
+      MINIO_ROOT_USER: platform-admin
+      MINIO_ROOT_PASSWORD: 86a2504c7f15b049a3e5168ca6d24993
+      MINIO_AUDIT_WEBHOOK_ENABLE: 'on'
+      MINIO_AUDIT_WEBHOOK_ENDPOINT: http://observer:8080/audit
+      MINIO_AUDIT_WEBHOOK_AUTH_TOKEN: 30c53408efba4792866eeab3bb206115
+      MINIO_UPDATE: 'off'
+      MINIO_BROWSER: 'off'
+      MINIO_SCANNER_SPEED: fastest
+    healthcheck:
+      test: [CMD, curl, -f, http://localhost:9000/minio/health/live]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+  observer:
+    build: {context: ., target: observer}
+    networks: [documents]
+    environment:
+      MINIO_ROOT_USER: platform-admin
+      MINIO_ROOT_PASSWORD: 86a2504c7f15b049a3e5168ca6d24993
+      AUDIT_TOKEN: 30c53408efba4792866eeab3bb206115
+networks:
+  documents:
+    internal: true

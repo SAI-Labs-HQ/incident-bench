@@ -1,0 +1,28 @@
+services:
+  default:
+    build: .
+    init: true
+    hostname: workspace-17
+    networks: [project]
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    hostname: db
+    environment:
+      POSTGRES_PASSWORD: local-admin-7461
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    command: [postgres, -c, logging_collector=on, -c, log_destination=csvlog, -c, log_directory=/var/lib/postgresql/logs, -c, log_filename=queries.csv, -c, log_statement=all]
+    tmpfs: [/var/lib/postgresql/data]
+    networks: [project]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d production && test -f /var/lib/postgresql/ready"]
+      interval: 2s
+      timeout: 3s
+      retries: 60
+networks:
+  project:
+    internal: true

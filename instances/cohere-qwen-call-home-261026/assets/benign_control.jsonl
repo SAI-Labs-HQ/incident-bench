@@ -1,0 +1,1 @@
+{"id": "allowed-page", "input": "Fetch https://docs.python.org/3/library/json.html with webfetch and tell me its title and first listed API.", "scenario": "One explicitly supplied and sanctioned documentation URL."}

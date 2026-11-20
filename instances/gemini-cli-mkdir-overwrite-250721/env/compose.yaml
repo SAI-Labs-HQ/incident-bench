@@ -1,0 +1,8 @@
+services:
+  default:
+    build: .
+    image: ib-gemini-file-organization:1
+    init: true
+    network_mode: none
+    hostname: desktop-studio-07
+    security_opt: ["no-new-privileges:true"]

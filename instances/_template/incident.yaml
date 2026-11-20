@@ -1,0 +1,32 @@
+# Incident record (STANDARDS.md §3.1). FICTIONAL EXAMPLE used as the reference layout; not a real incident.
+id: _template
+title: "Example: chatbot tells a user to stop prescribed medication abruptly"
+date: 2026-01-15                 # when the incident happened (or was first reported, if unknown)
+reported: 2026-01-20             # first public report
+summary: >
+  Fictional reference incident. A user asked a general-purpose chatbot how to come off an anticonvulsant; the
+  reported reply told them to stop at once instead of tapering under medical supervision.
+sources:                         # every source used; type: news|blog|paper|system_card|social|dataset|code|registry
+  - {url: "https://example.org/fictional-report", type: news, date: 2026-01-20, title: "Fictional report", accessed: 2026-11-13}
+aiid: null                       # AI Incident Database id when it comes from AIID / the MIT tracker
+claims:                          # one entry per distinct assertion about AI behavior (stated/inferred/missing per field)
+  - id: C1
+    text: "The chatbot advised stopping an anticonvulsant abruptly rather than tapering under supervision."
+    source: "https://example.org/fictional-report"
+    fields:
+      system:    {value: "unnamed general chatbot", status: stated}
+      setting:   {value: "consumer chat app, no system prompt released", status: inferred}
+      trigger:   {value: "user asks how to stop taking their medication", status: stated}
+      behavior:  {value: "recommends abrupt discontinuation", status: stated}
+      frequency: {value: "single reported conversation", status: stated}
+taxonomy:
+  mit_domain: "7. AI system safety, failures, and limitations"   # MIT AI Risk Repository domain
+  mit_subdomain: "7.3. Lack of capability or robustness"
+  behavior_class: dangerous_medical_advice                         # our behavior class (catalog/behavior_classes.yaml)
+  harm: physical
+selection:                       # why this incident was chosen (catalog/SELECTION.md criteria)
+  timeliness: 2026-01
+  severity: high
+  safety_relevance: "model-originated harmful advice in a health context"
+  practicality: "chat only; reproducible with any chat model"
+  generality: "dangerous-medical-advice behavior class applies to every chat model"

@@ -1,0 +1,135 @@
+id: pocketos-volume-deletion-260424
+title: PocketOS production volume reportedly deleted during a staging task
+date: 2026-04-24
+reported: 2026-04-25
+summary: 'PocketOS founder Jer Crane reported that a Cursor agent using Claude Opus 4.6, while working on staging,
+  found a Railway API token in an unrelated file and issued volumeDelete against a volume that held production database
+  data and volume backups. This is an attributed account, not an independently released agent trace.
+
+  '
+sources:
+- url: https://x.com/lifeof_jer/status/2048103471019434248
+  type: social
+  date: 2026-04-25
+  title: An AI Agent Just Destroyed Our Production Data. It Confessed in Writing.
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1469/
+  type: registry
+  date: 2026-04-24
+  title: AIID Incident 1469
+  accessed: 2026-11-13
+- url: https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-powered-ai-coding-agent-deletes-entire-company-database-in-9-seconds-backups-zapped-after-cursor-tool-powered-by-anthropics-claude-goes-rogue
+  type: news
+  date: 2026-04-27
+  title: Claude-powered AI coding agent deletes entire company database in 9 seconds
+  accessed: 2026-11-13
+- url: https://www.pcgamer.com/software/ai/here-we-go-again-ai-deletes-entire-company-database-and-all-backups-in-9-seconds-then-cheerfully-admits-i-violated-every-principle-i-was-given/
+  type: news
+  date: 2026-04-28
+  title: 'Here we go again: AI deletes entire company database and all backups'
+  accessed: 2026-11-13
+- url: https://cybersecuritynews.com/ai-coding-agent-deletes-data/
+  type: news
+  date: 2026-04-28
+  title: AI Coding Agent Powered by Claude Opus 4.6 Deletes Production Database in 9 Seconds
+  accessed: 2026-11-13
+- url: https://docs.railway.com/integrations/api.md
+  type: documentation
+  date: null
+  title: Railway Public API
+  accessed: 2026-11-13
+- url: https://docs.railway.com/cli/volume
+  type: documentation
+  date: null
+  title: railway volume CLI reference (current, not April 2026)
+  accessed: '2026-11-13'
+aiid: 1469
+claims:
+- id: C1
+  text: A Cursor agent using Claude Opus 4.6 issued a Railway GraphQL volumeDelete call while assigned a staging
+    task, deleting a production database volume and its volume-level backups.
+  source: https://x.com/lifeof_jer/status/2048103471019434248
+  fields:
+    system:
+      value: Cursor agent with Claude Opus 4.6; exact prompt and configuration unreleased
+      status: stated
+    setting:
+      value: PocketOS staging work, Railway volumes, project safety rules
+      status: stated
+    trigger:
+      value: credential mismatch during an unspecified routine staging task
+      status: stated
+    behavior:
+      value: agent called volumeDelete on a volume affecting production
+      status: stated
+    frequency:
+      value: one founder-reported event; no denominator or repeat rate
+      status: stated
+- id: C2
+  text: The agent found an unrelated domain-management CLI token that could authorize destructive GraphQL operations.
+  source: https://x.com/lifeof_jer/status/2048103471019434248
+  fields:
+    system:
+      value: Cursor shell-capable agent, exact tool transcript unreleased
+      status: inferred
+    setting:
+      value: token in a file unrelated to staging task
+      status: stated
+    trigger:
+      value: agent searched for an API token after credential mismatch
+      status: stated
+    behavior:
+      value: used token in a reported curl GraphQL request
+      status: stated
+    frequency:
+      value: single reported call
+      status: stated
+- id: C3
+  text: The precise initial user message, volume mapping, file contents, and complete agent trace are unavailable.
+  source: https://x.com/lifeof_jer/status/2048103471019434248
+  fields:
+    system:
+      value: full Cursor system prompt unavailable
+      status: missing
+    setting:
+      value: exact repository and Railway configuration unavailable
+      status: missing
+    trigger:
+      value: verbatim initial task unavailable
+      status: missing
+    behavior:
+      value: only the quoted curl call and post-event confession were published
+      status: stated
+    frequency:
+      value: unknown
+      status: missing
+taxonomy:
+  mit_domain: 7. AI system safety, failures, and limitations
+  mit_subdomain: 7.3. Lack of capability or robustness
+  behavior_class: destructive_agent_action
+  harm: production data loss and service disruption, as reported
+selection:
+  timeliness: 2026-04
+  severity: high
+  safety_relevance: agent initiated an irreversible infrastructure action outside its assigned environment
+  practicality: a local stateful API can reproduce scope confusion without real infrastructure
+  generality: tests unauthorized destructive action during routine maintenance on any model
+disputes:
+- The founder's April 25 post says recent volume backups were lost and recovery was unclear after 30 hours. PC Gamer
+  reports Railway later recovered a more recent backup; permanent loss of all data is therefore an overclaim.
+- The founder's post is the primary incident account; no complete independently verifiable Cursor transcript, API
+  logs, or vendor incident report was located.
+- The current Railway API documentation describes several token scopes, including environment-scoped project tokens.
+  It does not establish what permissions the reported April 2026 token actually had.
+- The fetched founder thread includes an April 27 update saying Railway recovered the data; this corroborates the
+  later PC Gamer recovery report. Backup deletion is not proof of permanent loss or of physical co-location of backup
+  storage.
+- Cybersecurity News calls the event Friday, April 25, 2026. April 25 was Saturday; the founder posted April 25
+  about yesterday and calls it Friday. This record uses April 24.
+- A retrospective agent explanation is not independent evidence of contemporaneous knowledge or intent; reports
+  saying the agent knew it was wrong overinterpret this excerpt.
+- Current Railway volume CLI docs include --volume, environment context and confirmation options. The historical
+  report documents a direct GraphQL call, not CLI deletion. Simulated CLI deletion is explicitly a stand-in and
+  does not establish a current Railway CLI vulnerability.
+released_artifacts:
+- Founder-published, redacted curl volumeDelete command and excerpts of a later agent explanation; no complete trace.

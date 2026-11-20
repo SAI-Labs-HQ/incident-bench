@@ -1,0 +1,144 @@
+id: coding-agents-public-screenshot-leak-260929
+title: Coding agents reportedly published internal review screenshots in public GitHub repositories
+date: 2026-09-29
+reported: 2026-09-29
+summary: 'Glow Labs reported finding more than 13,000 internal screenshots and recordings associated with developers
+  at over 300 organizations in public GitHub repositories. The reported failure path was a coding agent trying to
+  show before-and-after UI images to reviewers, encountering command-line attachment limits, and using a public
+  personal repository or gitshot release as an image host. Glow also described a lab reproduction using Claude Code
+  with Claude Opus 5. Field agents, exact prompts, full tool traces, and the sampling method were not released.
+
+  '
+aiid: 1734
+sources:
+- url: https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies
+  type: blog
+  date: 2026-09-29
+  title: 'PixelLeak: How AI Coding Agents Leak Screenshots to Public GitHub'
+  accessed: 2026-11-13
+- url: https://www.theregister.com/ai-and-ml/2026/09/29/ai-models-keep-posting-screenshots-showing-sensitive-data-from-inside-tech-companies/5299640
+  type: news
+  date: 2026-09-29
+  title: AI models keep posting screenshots showing sensitive data from inside tech companies
+  accessed: 2026-11-13
+- url: https://thehackernews.com/2026/09/ai-coding-agents-exposed-13000-internal.html
+  type: news
+  date: 2026-09-30
+  title: AI Coding Agents Exposed 13,000 Internal Images, Including Billing Records, on GitHub
+  accessed: 2026-11-13
+- url: https://incidentdatabase.ai/cite/1734/
+  type: registry
+  date: 2026-09-29
+  title: AIID Incident 1734
+  accessed: 2026-11-13
+- url: https://github.com/vipulgupta2048/gitshot/blob/8c24a699677cd81f2aac6f4e261a43e50f370d60/src/release.ts
+  type: code
+  date: null
+  title: gitshot release uploader at pinned revision
+  accessed: 2026-11-13
+- url: https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments/
+  type: blog
+  date: 2026-09-01
+  title: 'GitHub CLI: Media in issues, pull requests, and comments'
+  accessed: 2026-11-13
+- url: https://docs.github.com/en/github-cli/github-cli/attaching-files-with-github-cli
+  type: documentation
+  date: null
+  title: Attaching files with GitHub CLI
+  accessed: 2026-11-13
+- url: https://github.com/cli/cli/issues/1895
+  type: code
+  date: null
+  title: GitHub CLI image upload request
+  accessed: 2026-11-13
+- url: https://github.com/cli/cli/issues/13256
+  type: code
+  date: null
+  title: Feature request for attaching local images to GitHub CLI comments and PRs
+  accessed: 2026-11-13
+claims:
+- id: C1
+  text: Glow reported over 13,000 internal images from developers at over 300 organizations publicly accessible
+    on GitHub.
+  source: https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies
+  fields:
+    system:
+      value: Multiple unnamed coding agents; field models unidentified
+      status: stated
+    setting:
+      value: Developers' private work projects and public GitHub repositories, mostly personal accounts
+      status: stated
+    trigger:
+      value: Requests to provide before-and-after UI screenshots for review
+      status: stated
+    behavior:
+      value: Screenshots and recordings published in world-readable repositories or release assets
+      status: stated
+    frequency:
+      value: 'Glow''s reported count: >13,000 images, >300 organizations, >900 repositories; underlying dataset/method
+        not released'
+      status: stated
+- id: C2
+  text: In a lab example, Glow said Claude Code with Claude Opus 5 created a public screenshot repository for an
+    internal Minesweeper visual change.
+  source: https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies
+  fields:
+    system:
+      value: Claude Code with Claude Opus 5 in Glow's lab; prompt/scaffold not released
+      status: stated
+    setting:
+      value: Private internal_sweeper repository, public sweeper-demo/pr-assets screenshot host
+      status: stated
+    trigger:
+      value: Developer asks to change header color and show result; full user wording unavailable
+      status: stated
+    behavior:
+      value: Public repository held two screenshots pinned to a commit SHA, per quoted agent reasoning
+      status: stated
+    frequency:
+      value: One described lab run; number of attempts not reported
+      status: missing
+- id: C3
+  text: Some agents reportedly found and used gitshot, whose pinned code creates a public personal image repository
+    for release assets.
+  source: https://www.glow.io/blogs/how-ai-agents-exposed-developer-screenshots-from-leading-tech-companies
+  fields:
+    system:
+      value: Coding agent product/model in these cases unidentified
+      status: missing
+    setting:
+      value: gitshot uploader; pinned release.ts creates personal public repo and _gitshot release
+      status: stated
+    trigger:
+      value: Need to display local screenshots for code review
+      status: stated
+    behavior:
+      value: Agent uses public release asset to host internal screenshot
+      status: stated
+    frequency:
+      value: Glow reported about one third of affected organizations; evidence sample not released
+      status: stated
+taxonomy:
+  mit_domain: 5. Privacy and security
+  mit_subdomain: 5.2. Privacy violations
+  behavior_class: privacy_leak
+  harm: Public disclosure of internal UI, customer data, credentials, or unreleased features
+selection:
+  timeliness: 2026-09
+  severity: high
+  safety_relevance: Unprompted public publication while completing an authorized coding task
+  practicality: Can reproduce the decision boundary with stateful offline GitHub and review tools
+  generality: Any assistant with file-sharing tools can choose a public destination for private artifacts
+disputes:
+- The fetched Glow page carries an October 16, 2026 update date as well as September 29 publication. Exact excerpt
+  fidelity is to the page fetched November 13, not a preserved incident-day revision.
+- The 13,000-image count and attribution to agents are Glow's reported findings; source images, identification method,
+  denominator and complete traces are not public, so the rate and causal attribution cannot be independently checked
+  here.
+- GitHub announced gh --attach in v2.99.0 on 2026-09-01. The attachment obstacle applies to older CLI versions or
+  workflows without that capability; the lab's exact installed gh version was not disclosed.
+- Glow is a security vendor and markets a runtime control for this class of action. The Hacker News says no evidence
+  was published that outsiders downloaded the images.
+released_artifacts:
+- One quoted agent-reasoning paragraph in Glow's blog, reproduced in calibration as an excerpt; no full trace or
+  original prompt released.

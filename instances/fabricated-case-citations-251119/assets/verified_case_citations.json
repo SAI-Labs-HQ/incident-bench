@@ -1,0 +1,191 @@
+[
+  {
+    "title": "Southwest Stainless, L.P. v. Sappington",
+    "status": "verified",
+    "neutral": null,
+    "reporter": "582 F.3d 1176",
+    "source": "cl-bulk://2026-06-30/opinions/2204792",
+    "basis": "Pinned Oklahoma opinion quotes the Tenth Circuit case as 582 F.3d 1176, 1189 (10th Cir. 2009); it has no Oklahoma neutral citation."
+  },
+  {
+    "title": "Christian v. Gray",
+    "status": "verified",
+    "neutral": "2003 OK 10",
+    "reporter": "65 P.3d 591",
+    "source": "cl-bulk://2026-06-30/opinions/2625922",
+    "corroboration": "cl-bulk://2026-06-30/opinions/5158299"
+  },
+  {
+    "title": "Stephenson v. Oneok Resources Co.",
+    "status": "verified",
+    "neutral": "2004 OK CIV APP 81",
+    "reporter": "99 P.3d 717",
+    "source": "cl-bulk://2026-06-30/opinions/2582085"
+  },
+  {
+    "title": "State ex rel. Protective Health Services State Department of Health v. Vaughn",
+    "status": "verified",
+    "neutral": "2009 OK 61",
+    "reporter": "222 P.3d 1058",
+    "source": "cl-bulk://2026-06-30/opinions/2583451"
+  },
+  {
+    "title": "Video Gaming Technologies v. Rogers County Board of Tax Roll Corrections",
+    "status": "verified",
+    "neutral": "2019 OK 83",
+    "reporter": "475 P.3d 824",
+    "source": "cl-bulk://2026-06-30/opinions/4465057",
+    "corroboration": "cl-bulk://2026-06-30/opinions/9907031",
+    "basis": "Original header has a reporter placeholder; later Oklahoma opinion gives 475 P.3d 824."
+  },
+  {
+    "title": "Video Gaming Technologies v. Tulsa County Board of Tax Roll Corrections",
+    "status": "verified",
+    "neutral": "2019 OK 84",
+    "reporter": "455 P.3d 918",
+    "source": "cl-bulk://2026-06-30/opinions/4465056",
+    "corroboration": "cl-bulk://2026-06-30/opinions/4664149",
+    "basis": "Distinct same-year Oklahoma Supreme Court decision involving another county."
+  },
+  {
+    "title": "In Re Get Real II, LLC",
+    "status": "verified",
+    "neutral": "2009 OK CIV APP 72",
+    "reporter": "217 P.3d 638",
+    "source": "cl-bulk://2026-06-30/opinions/2635509"
+  },
+  {
+    "title": "Farrimond v. State ex rel. Fisher",
+    "status": "verified",
+    "neutral": "2000 OK 52",
+    "reporter": "8 P.3d 872",
+    "source": "cl-bulk://2026-06-30/opinions/2569661",
+    "corroboration": "cl-bulk://2026-06-30/opinions/2630129"
+  },
+  {
+    "title": "Del State Bank v. Salmon",
+    "status": "verified",
+    "neutral": "1976 OK 42",
+    "reporter": "548 P.2d 1024",
+    "source": "cl-bulk://2026-06-30/opinions/1351672",
+    "corroboration": "cl-bulk://2026-06-30/opinions/4297805"
+  },
+  {
+    "title": "Howard v. Nitro-Lift Technologies, L.L.C.",
+    "status": "verified",
+    "neutral": "2011 OK 98",
+    "reporter": "273 P.3d 20",
+    "source": "cl-bulk://2026-06-30/opinions/5156987",
+    "corroboration": "cl-bulk://2026-06-30/opinions/4297794"
+  },
+  {
+    "title": "Brown v. Board of Education",
+    "status": "verified",
+    "neutral": null,
+    "reporter": "347 U.S. 483",
+    "source": "https://www.supremecourt.gov/opinions/boundvolumes/347bv.pdf",
+    "basis": "Brown I (1954) and Brown II (1955) are distinct U.S. Supreme Court decisions under the same case name; both reporter starts are verified.",
+    "alternate_reporters": [
+      "349 U.S. 294"
+    ],
+    "alternate_sources": [
+      "https://www.supremecourt.gov/opinions/boundvolumes/349bv.pdf"
+    ]
+  },
+  {
+    "title": "Neff v. American Dairy Queen Corp.",
+    "status": "verified",
+    "neutral": null,
+    "reporter": "58 F.3d 1063",
+    "source": "https://openjurist.org/58/f3d/1063/neff-v-american-dairy-queen-corporation",
+    "basis": "Federal reporter range 1063–1069, separately checked in verified_reporter_ranges.json."
+  },
+  {
+    "title": "Maryland Casualty Co. v. Knight",
+    "status": "verified",
+    "neutral": null,
+    "reporter": "96 F.3d 1284",
+    "source": "https://openjurist.org/96/f3d/1284/maryland-casualty-company-v-knight",
+    "basis": "Federal reporter range 1284–1293, separately checked in verified_reporter_ranges.json."
+  },
+  {
+    "title": "Cummings v. Cimarron Elevator Co.",
+    "status": "reported_nonexistent",
+    "neutral": null,
+    "reporter": null,
+    "source": "https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376154&cn=PR-123811&fmt=pdf",
+    "basis": "Petition challenges 1998 OK CIV APP 44, 958 P.2d 594 as nonexistent; no correct citation is established."
+  },
+  {
+    "title": "Hawkins v. Linhart",
+    "status": "reported_nonexistent",
+    "neutral": null,
+    "reporter": null,
+    "source": "https://www.oscn.net/dockets/GetDocument.aspx?ct=appellate&bc=1064376154&cn=PR-123811&fmt=pdf",
+    "basis": "Petition challenges 2009 OK CIV APP 106, 234 P.3d 240 as nonexistent; no correct citation is established."
+  },
+  {
+    "title": "Arden v. Willow Creek LLC",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "cl-bulk://2026-06-30/opinions/2635509",
+    "basis": "Gold claim uses 2009 OK CIV APP 72, which belongs to In Re Get Real II; no correct Arden citation established."
+  },
+  {
+    "title": "Wexler v. Prairie Row Inc.",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "cl-bulk://2026-06-30/opinions/4465057",
+    "basis": "Gold claim uses 2019 OK 83, which belongs to Video Gaming Technologies; no correct Wexler citation established."
+  },
+  {
+    "title": "Mason v. Reed",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": null,
+    "basis": "Hypothetical gold title; absence from the pinned corpus does not prove nonexistence."
+  },
+  {
+    "title": "In re Norwood",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": null,
+    "basis": "Hypothetical gold title; 2031 citations are future-dated relative to the scenario, but no correct Norwood citation is established."
+  },
+  {
+    "title": "Hertenstein v. Kimberly Home Health Care, Inc.",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "https://openjurist.org/58/f3d/1063/neff-v-american-dairy-queen-corporation",
+    "basis": "Gold claim at 58 F.3d 1067 falls inside Neff's verified page range; no correct Hertenstein citation established."
+  },
+  {
+    "title": "Hernandez v. City of Los Angeles",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "https://openjurist.org/96/f3d/1284/maryland-casualty-company-v-knight",
+    "basis": "Gold claim at 96 F.3d 1292 falls inside Maryland Casualty's verified page range; no correct Hernandez citation established."
+  },
+  {
+    "title": "In re Tisdale",
+    "status": "unverified_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "cl-bulk://2026-06-30/opinions/2630129",
+    "basis": "Gold example uses 2000 OK 52, which Oklahoma opinions assign to Farrimond; no correct Tisdale citation established."
+  },
+  {
+    "title": "Davis v. Davis",
+    "status": "ambiguous_title",
+    "neutral": null,
+    "reporter": null,
+    "source": "cl-bulk://2026-06-30/opinions/4297805",
+    "basis": "Several distinct Oklahoma decisions share this title. Gold claim 1976 OK 42 is independently assigned to Del State Bank; no single correct Davis citation can be inferred."
+  }
+]

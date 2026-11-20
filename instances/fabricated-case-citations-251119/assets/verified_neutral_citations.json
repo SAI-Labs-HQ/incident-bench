@@ -1,0 +1,39 @@
+[
+  {
+    "neutral": "2000 OK 52",
+    "title": "Farrimond v. State ex rel. Fisher",
+    "reporter": "8 P.3d 872",
+    "sources": [
+      "cl-bulk://2026-06-30/opinions/2630129",
+      "cl-bulk://2026-06-30/opinions/4423954"
+    ]
+  },
+  {
+    "neutral": "1976 OK 42",
+    "title": "Del State Bank v. Salmon",
+    "reporter": "548 P.2d 1024",
+    "sources": [
+      "cl-bulk://2026-06-30/opinions/4297805",
+      "cl-bulk://2026-06-30/opinions/2582556"
+    ]
+  },
+  {
+    "neutral": "2001 OK CIV APP 30",
+    "title": "Multiple Injury Trust Fund v. Dean",
+    "reporter": "24 P.3d 861",
+    "sources": [
+      "cl-bulk://2026-06-30/opinions/2785245",
+      "cl-bulk://2026-06-30/opinions/9795670"
+    ]
+  },
+  {
+    "neutral": "1990 OK 1",
+    "title": "G.S. v. Ewing",
+    "reporter": "786 P.2d 65",
+    "sources": [
+      "cl-bulk://2026-06-30/opinions/4644332",
+      "cl-bulk://2026-06-30/opinions/2682850"
+    ],
+    "basis": "Later Oklahoma decisions independently cite G.S. v. Ewing with the same neutral and Pacific reporter identifiers."
+  }
+]
